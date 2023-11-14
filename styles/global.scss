@@ -1,6 +1,8 @@
 @import "./settings";
 @import "./mixin";
 
+/* =============Landing styles============ */
 @import "./landing/landing-nav.scss";
 @import "./landing/landing-hero.scss";
 @import "./landing/landing-recent.scss";
+@import "./landing/landing-actu.scss";

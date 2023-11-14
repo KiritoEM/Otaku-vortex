@@ -47,6 +47,15 @@ interface IPostRecentItems {
   type?: string;
 }
 
+interface IActu{
+  imageSource: string,
+  title: string,
+  description :string,
+  subtitle: string,
+  backgroundSource: string
+}
+
+
 export default function arrayLandingHelpers() {
   const navLandingData: InavLandingData = {
     logo: "/logo.webp",
@@ -128,5 +137,13 @@ export default function arrayLandingHelpers() {
     ],
   };
 
-  return { navLandingData, landingHeroData, landingRecentData };
+  const LandingActuData: IActu= {
+    imageSource:"/landing/Boruto-two-blue-vortexjpg",
+    description:"",
+    subtitle: "Nekketsu, action, comédie, drame",
+    title:"Boruto Blue Vortex",
+    backgroundSource:"/landing/Boruto-two-blue-vortexjpg"
+  }
+
+  return { navLandingData, landingHeroData, landingRecentData , LandingActuData};
 }

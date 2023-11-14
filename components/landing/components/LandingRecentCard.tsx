@@ -8,7 +8,7 @@ interface IProCardProps {
   const LandingRecentCard: React.FC<IProCardProps> = ({ backgroundSource, title, date, type }: IProCardProps): JSX.Element => {
     return (
       <div className="col-3">
-        <div className="box">
+        <article className="box">
           <div
             className="box__image"
             style={{ backgroundImage: `url("${backgroundSource}")` }}
@@ -26,7 +26,7 @@ interface IProCardProps {
             </div>
             <h4>{title}</h4>
           </div>
-        </div>
+        </article>
       </div>
     );
   };
