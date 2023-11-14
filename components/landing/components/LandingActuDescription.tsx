@@ -11,13 +11,13 @@ const LandingActuDescription = (): JSX.Element => {
         <div className="subtitle mt-3">
           <h4>{LandingActuData.subtitle}</h4>
         </div>
-        <div className="typeS mt-3">
-           <p>Nouvele série de Boruto </p>
+        <div className="typeS mt-4">
+           <p>{LandingActuData.genre}</p>
         </div>
 
         <div className="comeOut">
              <h3>Sortie prévue pour: </h3>
-             <p>21 Aôut 2023</p>
+             <p>{LandingActuData.comeOutDate}</p>
         </div>
       </div>
     </div>

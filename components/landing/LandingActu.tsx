@@ -8,6 +8,9 @@ const LandingActu = (): JSX.Element => {
     <section className="landing-actu">
       <div
         className="landing-actu__container"
+        style={{
+          backgroundImage: `url("${LandingActuData.backgroundSource}")`,
+        }}
       >
         <div className="row">
           <LandingActuDescription />

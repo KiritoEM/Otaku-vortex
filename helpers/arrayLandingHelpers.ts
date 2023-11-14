@@ -50,9 +50,10 @@ interface IPostRecentItems {
 interface IActu{
   imageSource: string,
   title: string,
-  description :string,
   subtitle: string,
-  backgroundSource: string
+  backgroundSource: string,
+  genre:string,
+  comeOutDate:string,
 }
 
 
@@ -138,11 +139,12 @@ export default function arrayLandingHelpers() {
   };
 
   const LandingActuData: IActu= {
-    imageSource:"/landing/Boruto-two-blue-vortexjpg",
-    description:"",
+    imageSource:"/landing/Boruto-two-blue-vortex.jpg",
+    genre:"Nouvele série de Boruto",
+    comeOutDate:"21 Aôut 2023",
     subtitle: "Nekketsu, action, comédie, drame",
     title:"Boruto Blue Vortex",
-    backgroundSource:"/landing/Boruto-two-blue-vortexjpg"
+    backgroundSource:"/landing/boruto-black.png"
   }
 
   return { navLandingData, landingHeroData, landingRecentData , LandingActuData};
