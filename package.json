@@ -1,0 +1,27 @@
+{
+  "name": "otaku-vortex",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "otaku-vortex": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.1",
+    "next": "14.0.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}
