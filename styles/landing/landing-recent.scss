@@ -22,6 +22,70 @@
 
          .section-content{
 
+             .box{
+                width: 98%;
+
+                &__image{
+                     width: 100%;
+                     height: 22rem;
+                     overflow: hidden;
+                     border-radius: 12px;
+                     background-size: cover;
+                     background-position: center center;
+
+                      .sortie{
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: flex-end;
+                        height: 100%;
+                        padding: 5px;
+                        white-space: nowrap;
+
+                        p{
+                            background-color: $bg-color;
+                            width: 65%;
+                            border-radius: 7px;
+                            position: relative;
+                            top: 0.2rem;
+                            border: 3px solid $color-primary;
+                            color: #fff;
+                            font-size: 18px;
+                            padding: 4px;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                      }
+                }
+
+                &__content{
+                    margin-top: 1.5rem;
+                    padding-left: 0.6rem;
+                    padding-right: 0.2rem;
+
+                    .langue{
+                        display: flex;
+                        flex-direction: row;
+                        gap: 10px;
+
+                        h5{
+                            color: #fff;
+                            border: 2px solid $color-primary;
+                            border-radius: 8px;
+                            color: $color-primary;
+                            padding: 4px 10px 4px 10px;
+                            font-size: 17px;
+                        }
+                    }
+
+                    h4{
+                        color: #fff;
+                        margin-top: 0.4rem;
+                        font-size: 21px;
+                        font-weight: 600;
+                        letter-spacing: 1.5px;
+                    }
+                }
+             }
          }
      }
 }

@@ -32,15 +32,19 @@ interface IlandingHero {
   buttonText: string;
   buttonLink: string;
   buttonIcon: IconProp;
-  pictureSource: string
+  pictureSource: string;
 }
 
 interface IlandingRecent {
-  title: string; 
+  title: string;
+  content: IPostRecentItems[];
 }
 
-interface IPostRecentItems{
- 
+interface IPostRecentItems {
+  backgroundSource: string;
+  title: string;
+  date: string;
+  type?: string;
 }
 
 export default function arrayLandingHelpers() {
@@ -71,8 +75,28 @@ export default function arrayLandingHelpers() {
   };
 
   const landingRecentData: IlandingRecent = {
-    title: "Animés récents",
-  }
+    title: "Animés récents et populaires",
+    content: [
+      {
+        backgroundSource: "/landing/black clover.jpg",
+        date: "2023",
+        title: `Black CLover : L'épée de l' Empereur mage`,
+        type: "FILM",
+      },
+      {
+        backgroundSource: "/landing/Jujutsu-Kaisen-saison3.jpg",
+        date: "2023",
+        title: `Jujutsu Kaisen : Saison 2`,
+        type: "SERIES",
+      },
+      {
+        backgroundSource: "/banner3.jpg",
+        date: "2023",
+        title: `Black CLover : L'épée de l' Empereur mage`,
+        type: "FILM",
+      },
+    ],
+  };
 
   return { navLandingData, landingHeroData, landingRecentData };
 }

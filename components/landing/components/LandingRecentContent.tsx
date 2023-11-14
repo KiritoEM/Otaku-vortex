@@ -1,16 +1,17 @@
+import LandingRecentCard from "./LandingRecentCard";
+import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 
-const LandingRecentContent = () : JSX.Element => {
-    return (
-        <div className="section-content mt-4">
-            <div className="row">
-                 <div className="col-4">
-                     <div className="box">
-                         <div className="box__image"></div>
-                     </div>
-                 </div>
-            </div>
-        </div>
-    );
+const LandingRecentContent = (): JSX.Element => {
+  const { landingRecentData } = arrayLandingHelpers();
+  return (
+    <div className="section-content mt-5">
+      <div className="row g-4">
+        {landingRecentData.content.map((item, index) => (
+          <LandingRecentCard key={index} {...item} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default LandingRecentContent;
