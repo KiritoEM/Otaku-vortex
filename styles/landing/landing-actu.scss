@@ -7,7 +7,6 @@
         height: 100%;
         background-size: cover;
         background-position: center center;
-        padding: 1.6rem 6.2% 1.6rem 6.2%;
         z-index: 1;
         background-color: $bg-color;
 
@@ -20,10 +19,11 @@
             flex-direction: column;
             height: 100%;
             text-align: start;
+            padding: 1.2rem 4.2% 1.2rem 10.2%;
 
             .title {
                 h1 {
-                    font-size: 3em;
+                    font-size: 3.42em;
                     font-weight: bold;
                     color: #fff;
                     font-family: $paypen-font;
@@ -34,7 +34,7 @@
 
                 h4 {
                     color: #fff;
-                    font-size: 20px;
+                    font-size: 23px;
                     text-transform: uppercase;
                     font-weight: bold;
                     word-spacing: 5px;
@@ -46,7 +46,7 @@
                     background-color: $bg-color;
                     text-align: center;
                     width: 110%;
-                    font-size: 22px;
+                    font-size: 23px;
                     border-radius: 7px;
                     position: relative;
                     top: 0.2rem;
@@ -82,14 +82,14 @@
         }
 
         .section-picture {
-            width: 95%;
-            height: 100%;
+            width: 100%;
+            height: 85vh;
 
             img {
-                width: 95%;
+                width: 100%;
                 height: 100%;
                 object-fit: cover;
-                border-radius: 10px;
+
             }
         }
     }
