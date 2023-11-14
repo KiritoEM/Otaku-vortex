@@ -5,6 +5,7 @@ import PageHeading from "@/components/PageHeading";
 import LandingHero from "@/components/landing/LandingHero";
 import LandingRecent from "@/components/landing/LandingRecent";
 import LandingActu from "@/components/landing/LandingActu";
+import LandingFooter from "@/components/landing/LandingFooter";
 
 export default function landing(): JSX.Element {
   const { metaData } = metaDataHelper();
@@ -20,13 +21,15 @@ export default function landing(): JSX.Element {
 
       {/* =============Body============ */}
       <main>
-        <LandingHero/>
-        <LandingRecent/>
-        <LandingActu/>
+        <LandingHero />
+        <LandingRecent />
+        <LandingActu />
       </main>
 
       {/* =============footer============ */}
-      <footer></footer>
+      <footer>
+        <LandingFooter />
+      </footer>
     </section>
   );
 }
