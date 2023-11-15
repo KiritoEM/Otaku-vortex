@@ -33,7 +33,7 @@ const LandingFooterMail = (): JSX.Element => {
           </div>
           <div className="button mt-4">
             <button type="submit" className="btn">
-              Se connecter
+              {LandingFooterData.mail.ButtonValue}
             </button>
           </div>
         </form>

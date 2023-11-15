@@ -41,16 +41,19 @@
             }
 
             .contact-items {
-                margin-top: 1.5rem;
+                margin-top: 2rem;
                 width: 96%;
                 border-radius: 9px;
                 background-color: rgb(51, 49, 49);
                 padding: 12px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 20px;
 
                 p {
                     color: #fff;
-                    font-size: 18.6px;
-                    gap: 15px;
+                    font-size: 19.6px;
 
                     .icon {
                         color: $color-primary;
@@ -87,14 +90,14 @@
             }
 
             .line2 {
-                width: 70%;
+                width: 75%;
                 border-radius: 12px;
-                height: 3px;
+                height: 5px;
                 background-color: $color-primary;
             }
 
             .formulaire{
-                margin-top: 1.6rem;
+                margin-top: 2rem;
 
                 
              input{
@@ -106,7 +109,7 @@
 
              button{
                 width: 94%;
-                height: 3.2rem;
+                height: 3rem;
                 color: #383636;
                 font-weight: bold;
                 border-radius: 15px;
