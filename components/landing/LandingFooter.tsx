@@ -5,7 +5,7 @@ const LandingFooter = (): JSX.Element => {
   return (
     <section className="landing-footer">
       <div className="landing-footer__container">
-        <div className="row">
+        <div className="row g-5">
           <LandingFooterLeftS />
           <LandingFooterMail />
         </div>

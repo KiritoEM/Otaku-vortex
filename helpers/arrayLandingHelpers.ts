@@ -78,6 +78,7 @@ interface Imail {
   title: string,
   emailInputPlaceHolder:string,
   textInputPlaceHolder:string,
+  ButtonValue: string
 }
 
 export default function arrayLandingHelpers() {
@@ -183,7 +184,8 @@ export default function arrayLandingHelpers() {
     mail:{
       title:"Envoyez nous un email",
       emailInputPlaceHolder:"Votre adresse email ...",
-      textInputPlaceHolder:"Le contenu de l'email ..."
+      textInputPlaceHolder:"Le contenu de l'email ...",
+      ButtonValue:"Envoyer"
     }
   };
 
