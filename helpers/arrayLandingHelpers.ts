@@ -6,6 +6,9 @@ import {
   faNewspaper,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faGit, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons/faEnvelopeCircleCheck";
+
 
 type InavLandingData = {
   logo: string;
@@ -47,15 +50,35 @@ interface IPostRecentItems {
   type?: string;
 }
 
-interface IActu{
-  imageSource: string,
-  title: string,
-  subtitle: string,
-  backgroundSource: string,
-  genre:string,
-  comeOutDate:string,
+interface IActu {
+  imageSource: string;
+  title: string;
+  subtitle: string;
+  backgroundSource: string;
+  genre: string;
+  comeOutDate: string;
 }
 
+interface ILandingFooter{
+  leftSide:IleftSide
+  mail: Imail
+}
+
+interface IleftSide{
+  title: string,
+  contactItems: IcontactItems[]
+}
+
+interface IcontactItems{
+  iconfooter: IconProp,
+  label: string,
+}
+
+interface Imail {
+  title: string,
+  emailInputPlaceHolder:string,
+  textInputPlaceHolder:string,
+}
 
 export default function arrayLandingHelpers() {
   const navLandingData: InavLandingData = {
@@ -130,7 +153,8 @@ export default function arrayLandingHelpers() {
         type: "SERIE",
       },
       {
-        backgroundSource: "/landing/bleach_thousand_year_blood_war_the_separation.png",
+        backgroundSource:
+          "/landing/bleach_thousand_year_blood_war_the_separation.png",
         date: "2023",
         title: `BLeach Thousand Year Blood war the separation`,
         type: "SERIE",
@@ -138,14 +162,36 @@ export default function arrayLandingHelpers() {
     ],
   };
 
-  const LandingActuData: IActu= {
-    imageSource:"/landing/Boruto-two-blue-vortex.jpg",
-    genre:"Nouvele série de Boruto",
-    comeOutDate:"21 Aôut 2023",
+  const LandingActuData: IActu = {
+    imageSource: "/landing/Boruto-two-blue-vortex.jpg",
+    genre: "Nouvele série de Boruto",
+    comeOutDate: "21 Aôut 2023",
     subtitle: "Nekketsu, action, comédie, drame",
-    title:"Boruto Blue Vortex",
-    backgroundSource:"/landing/boruto-black.png"
-  }
+    title: "Boruto Blue Vortex",
+    backgroundSource: "/landing/boruto-black.png",
+  };
 
-  return { navLandingData, landingHeroData, landingRecentData , LandingActuData};
+  const LandingFooterData: ILandingFooter = {
+    leftSide: {
+      title: "Nous contacter",
+      contactItems:[
+        {label: "Hi Ro", iconfooter:faFacebook},
+        {label: "loickemadesemadisson@gmail.com", iconfooter:faEnvelopeCircleCheck},
+        {label: "Johan", iconfooter:faInstagram},
+      ],
+    },
+    mail:{
+      title:"Envoyez nous un email",
+      emailInputPlaceHolder:"Votre adresse email ...",
+      textInputPlaceHolder:"Le contenu de l'email ..."
+    }
+  };
+
+  return {
+    navLandingData,
+    landingHeroData,
+    landingRecentData,
+    LandingActuData,
+    LandingFooterData,
+  };
 }

@@ -11,7 +11,7 @@ const LandingNav = (): JSX.Element => {
         <img src={navLandingData.logo} alt="" />
         <h4
           dangerouslySetInnerHTML={{ __html: navLandingData.logo_title }}
-          className="mx-3"
+          className="mx-1"
         />
       </div>
 
