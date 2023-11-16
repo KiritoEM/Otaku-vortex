@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGit, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons/faEnvelopeCircleCheck";
+import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
 /*
   type of Navbar Landing
@@ -17,6 +18,7 @@ type InavLandingData = {
   logo_title: string;
   navItems: InavItems[];
   navButton: InavButton[];
+  hamburgerButton: IconProp,
 };
 
 /*
@@ -49,7 +51,6 @@ interface IlandingHero {
   interface of LandingPage RecentPost
 */
 interface IlandingRecent {
-  title: string;
   content: IPostRecentItems[];
 }
 
@@ -113,6 +114,7 @@ export default function arrayLandingHelpers() {
   const navLandingData: InavLandingData = {
     logo: "/logo.webp",
     logo_title: `Otaku-<span>Vortex</span>`,
+    hamburgerButton:faBars,
     navItems: [
       { label: "Accueil", href: "/", icon: faHome },
       { label: "Actualité", href: "", icon: faNewspaper },
@@ -134,7 +136,6 @@ export default function arrayLandingHelpers() {
 
   //Landing Recent Object-ArrayData
   const landingRecentData: IlandingRecent = {
-    title: "Animés récents et populaires",
     content: [
       {
         backgroundSource: "/landing/black clover.jpg",

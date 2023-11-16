@@ -7,7 +7,7 @@ const LandingNavItems = (): JSX.Element => {
   const { navLandingData } = arrayLandingHelpers();
   const router = useRouter();
   return (
-    <div className="nav__items">
+    <div className="nav__items  d-none d-lg-flex">
       <ul>
         {navLandingData.navItems.map((items, index) => (
           <li key={index}>

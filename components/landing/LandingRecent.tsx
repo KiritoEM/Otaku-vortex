@@ -8,7 +8,7 @@ const LandingRecent = (): JSX.Element => {
       <div className="landing-recent__container">
         {/* =============section-header============ */}
         <div className="section-header">
-          <h3>{landingRecentData.title}</h3>
+          <h3>Animés récents et populaires</h3>
         </div>
 
         {/* =============section-content============ */}

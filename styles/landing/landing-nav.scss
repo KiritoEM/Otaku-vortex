@@ -1,104 +1,178 @@
-.landing{
-    width: 100%;
-    overflow: hidden;
+.landing {
+   width: 100%;
+   overflow: hidden;
 
-     .nav{
-        width: 100%;
-        position: fixed;
-        height: 5rem;
-        background-color: #141414;
-        z-index: 700;
-        box-shadow: 15px 0 15px black;
+   .nav {
+      width: 100%;
+      position: fixed;
+      height: 5rem;
+      background-color: #141414;
+      z-index: 700;
+      box-shadow: 15px 0 15px black;
 
-         &__container{
-            padding: 0 6.2% 0 6.2%;
+      &__container {
+         padding: 0 6.2% 0 6.2%;
+         display: flex;
+         flex-direction: row;
+         width: 100%;
+         height: 100%;
+         flex-wrap: nowrap;
+         justify-content: space-between
+      }
+
+      &__logo {
+         display: flex;
+         align-items: center;
+         flex-direction: row;
+         white-space: nowrap;
+
+         img {
+            width: 55px;
+            animation: flip 3s linear infinite;
+         }
+
+         h4 {
+            color: #fff;
+            margin: auto;
+            font-weight: bold;
+            font-family: $paypen-font;
+
+            span {
+               font-family: $paypen-font;
+               color: $color-primary;
+            }
+         }
+      }
+
+      &__items {
+         display: flex;
+         align-items: center;
+
+         ul {
             display: flex;
             flex-direction: row;
-            width: 100%;
-            height: 100%;
-            flex-wrap: nowrap;
-            justify-content: space-between
-         }
-
-         &__logo{
-            display: flex;
-            align-items: center;
-            flex-direction: row;
+            gap: 28px;
+            margin: 0;
             white-space: nowrap;
 
-             img{
-                width: 55px;
-                animation: flip 3s linear infinite; 
-             }
+            a {
+               text-decoration: none;
+               font-size: 16.5px;
+               color: #fff;
+               font-weight: bold;
+               margin: auto;
 
-             h4{
-                color: #fff;
-                margin: auto;
-                font-weight: bold;
-                font-family: $paypen-font;
+               &:hover {
+                  color: #561866;
+               }
+            }
 
-                 span{
-                    font-family: $paypen-font;
-                    color: $color-primary;
-                 }
-             }
+            .active {
+               color: $color-primary;
+            }
          }
+      }
 
-         &__items{
-            display: flex;
-            align-items: center;
-            
-             ul{
-                display: flex;
-                flex-direction: row;
-                gap: 28px;
-                margin: 0;
-                white-space: nowrap;
+      &__button {
+         display: flex;
+         gap: 20px;
+         align-items: center;
+         white-space: nowrap;
 
-                 a{
-                    text-decoration: none;
-                    font-size: 16.5px;
-                    color: #fff;
-                    font-weight: bold;
-                    margin: auto;
-
-                    &:hover{
-                     color: #561866;
-                    }
-                 }
-
-                 .active{
-                  color: $color-primary;
-                 }
-             }
+         .btn {
+            color: #fff;
+            border: 2.5px solid $color-primary;
+            height: 45px;
+            font-weight: bold;
+            background-color: $bg-color;
+            border-radius: 14px;
          }
+      }
 
-         &__button{
+      .hamburgerButton {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         .icon-burger {
+             font-size: 27px;
+             padding: 9.5px;
+             background-color: $color-primary;
+             border: 5px solid rgb(112, 112, 4);
+             border-radius: 50%;
+             color: $bg-color;
+         }
+      }
+
+      .overlay{
+         width: 100%;
+         height: 100vh;
+         background-color: #141414e7;
+         z-index: 40;
+      }
+
+      &__responsive {
+         z-index: 400;
+         width: 100%;
+         background-color: $bg-color;
+         overflow: hidden;
+         padding-top: 3rem;
+         box-shadow: 8px 0 15px rgb(24, 23, 23);
+
+         ul {
             display: flex;
-            gap: 20px;
-            align-items: center;
+            position: relative;
+            padding: 0;
+            flex-direction: column;
+            gap: 38px;
+            margin: 0 auto;
+            text-align: center;
             white-space: nowrap;
 
-             .btn{
-                color: #fff;
-                border: 2.5px solid $color-primary;
-                height: 45px;
-                font-weight: bold;
-                background-color: $bg-color;
-                border-radius: 14px;
-             }
+            a {
+               text-decoration: none;
+               font-size: 22px;
+               color: #fff;
+               font-weight: bold;
+               margin: auto;
+
+               &:hover {
+                  color: $bg-color;
+                  box-shadow: 5px 0 8px rgba(19, 18, 18, 0.699);
+                  font-weight: bold;
+                  padding: 10px 4.5rem 10px 4.5rem;
+                  background-color: $color-primary;
+                  border-radius: 12px;
+               }
+            }
+
+            .active {
+               color: $bg-color;
+               box-shadow: 5px 0 8px rgba(19, 18, 18, 0.699);
+               font-weight: bold;
+               padding: 10px 4.5rem 10px 4.5rem;
+               background-color: $color-primary;
+               border-radius: 12px;
+            }
          }
-     }
+      }
+   }
+}
+
+.openMenu{
+ height: 46vh;
+}
+
+.closeMenu{
+   height: 0;
 }
 
 @keyframes flip {
    0% {
-     transform: perspective(800px) rotateY(0);
+      transform: perspective(800px) rotateY(0);
    }
-   100% {
-     transform: perspective(800px) rotateY(180deg);
-   }
- }
 
- 
- 
+   100% {
+      transform: perspective(800px) rotateY(180deg);
+   }
+}

@@ -1,0 +1,51 @@
+import React, { ReactNode, createContext, useContext, useState } from "react";
+
+interface IAuthProvider {
+  children?: ReactNode;
+}
+
+interface INavContext {
+  openMenu: boolean;
+  openOverlay: boolean;
+  menuToogle: (e: any) => void;
+}
+
+interface IDefaultNavContext {
+    openMenu: false;
+    openOverlay: false;
+    menuToogle: (e: any) => null;
+  }
+const NavContext = createContext<INavContext | IDefaultNavContext | null>(null);
+
+export const NavProvider: React.FC<IAuthProvider> = ({ children }) => {
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [openOverlay, setOpenOverlay] = useState<boolean>(false);
+
+  //toogle function
+  const menuToogle = (e: any) => {
+    setOpenMenu((state) => !state);
+    setOpenOverlay((state) => !state);
+  };
+
+  return (
+    <NavContext.Provider
+      value={{
+        openMenu,
+        openOverlay,
+        menuToogle,
+      }}
+    >
+      {children}
+    </NavContext.Provider>
+  );
+};
+
+//hooks exportation
+export const useNav = () => {
+  const context = useContext(NavContext);
+
+  if (!context) {
+    throw new Error("useApp must be used within an AppProvider");
+  }
+  return context;
+};
