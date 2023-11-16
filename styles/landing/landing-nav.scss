@@ -134,10 +134,34 @@
             top: 3rem;
             padding: 0;
             flex-direction: column;
-            gap: 38px;
+            gap: 35px;
             margin: 0 auto;
             text-align: center;
             white-space: nowrap;
+
+            li {
+
+               .button {
+                  display: flex;
+                  position: relative;
+                  top: 0;
+                  flex-direction: column;
+                  gap: 29px;
+                  align-items: center;
+                  white-space: nowrap;
+
+
+                  .btn {
+                     color: #fff;
+                     border: 2.5px solid $color-primary;
+                     height: 45px;
+                     font-weight: bold;
+                     font-size: 18px;
+                     background-color: $bg-color;
+                     border-radius: 14px;
+                  }
+               }
+            }
 
             a {
                text-decoration: none;
@@ -170,7 +194,7 @@
 }
 
 .openMenu {
-   height: 50vh;
+   height: 100vh;
    transition: 0.3s ease-in;
 }
 

@@ -30,6 +30,16 @@ const LandingNavResponsive = (): JSX.Element => {
               </a>
             </li>
           ))}
+
+          <li>
+            <div className="button">
+              {navLandingData.navButton.map((items, index) => (
+                <button className="btn" key={index}>
+                  {items.label}
+                </button>
+              ))}
+            </div>
+          </li>
         </ul>
       </div>
 
