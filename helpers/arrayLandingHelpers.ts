@@ -204,7 +204,7 @@ export default function arrayLandingHelpers() {
     leftSide: {
       contactItems:[
         {label: "Hi Ro", iconfooter:faFacebook},
-        {label: "loickemadesemadisson@gmail.com", iconfooter:faEnvelopeCircleCheck},
+        {label: "johankirito@gmail.com", iconfooter:faEnvelopeCircleCheck},
         {label: "Johan", iconfooter:faInstagram},
       ],
     },

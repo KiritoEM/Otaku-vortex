@@ -6,6 +6,14 @@
     &__container {
         padding: 2rem 6.2% 2.5rem 6.2%;
 
+        @include screen(small) {
+            padding: 2rem 4% 2.5rem 4%;
+        }
+
+        @include screen(medium) {
+            padding: 2rem 5% 2.5rem 5%;
+        }
+
         .section-left-side {
             display: flex;
             flex-direction: column;
@@ -31,6 +39,10 @@
                     align-items: center;
                     font-weight: bold;
                     color: $color-primary;
+
+                    @include screen(small) {
+                        font-size: 23px;
+                    }
                 }
             }
 
@@ -39,6 +51,10 @@
                 border-radius: 12px;
                 height: 4.8px;
                 background-color: $color-primary;
+
+                @include screen(small) {
+                    width: 50%;
+                }
             }
 
             .contact-items {
@@ -52,13 +68,33 @@
                 justify-content: center;
                 padding-left: 20px;
 
+                @include screen(small) {
+                    width: 100%;
+                    padding: 10px;
+                    padding-left: 8px;
+                }
+
+                @include screen(medium) {
+                    width: 100%;
+                    padding: 10px;
+                    padding-left: 8px;
+                }
+
                 p {
                     color: #fff;
                     font-size: 19.6px;
 
+                    @include screen(small) {
+                        font-size: 20px;
+                    }
+
                     .icon {
                         color: $color-primary;
                         font-size: 24px;
+
+                        @include screen(small) {
+                            font-size: 25px;
+                        }
                     }
                 }
             }
@@ -76,9 +112,9 @@
                 gap: 12px;
                 white-space: nowrap;
 
-                .icon{
-                   color: $color-primary;
-                   font-size: 26px;
+                .icon {
+                    color: $color-primary;
+                    font-size: 26px;
                 }
 
                 h4 {
@@ -87,6 +123,15 @@
                     align-items: center;
                     font-weight: bold;
                     color: $color-primary;
+
+                    @include screen(small) {
+                        font-size: 23px;
+                    }
+
+
+                    @include screen(medium) {
+                        font-size: 23px;
+                    }
                 }
             }
 
@@ -97,26 +142,40 @@
                 background-color: $color-primary;
             }
 
-            .formulaire{
+            .formulaire {
                 margin-top: 2rem;
 
-                
-             input{
-                width: 90%;
-                height: 3rem;
-                border-radius: 15px;
-                background-color: #e7dfdf;
-             }
 
-             button{
-                width: 90%;
-                height: 3rem;
-                color: #383636;
-                font-weight: bold;
-                border-radius: 15px;
-                background-color: $color-primary;
-                border: 0;
-             }
+                input {
+                    width: 90%;
+                    height: 3rem;
+                    border-radius: 15px;
+                    background-color: #e7dfdf;
+
+                    @include screen(small) {
+                        width: 94%;
+                        margin: 0 auto;
+                    }
+                }
+
+                .button {
+                    margin: 0 auto;
+
+                    button {
+                        width: 90%;
+                        height: 3rem;
+                        color: #383636;
+                        font-weight: bold;
+                        border-radius: 15px;
+                        background-color: $color-primary;
+                        border: 0;
+
+                        @include screen(small) {
+                            width: 94%;
+                            margin-left: 3%;
+                        }
+                    }
+                }
             }
         }
     }

@@ -17,8 +17,18 @@
          width: 100%;
          height: 100%;
          flex-wrap: nowrap;
-         justify-content: space-between
+         justify-content: space-between;
+
+         @include screen(small) {
+            padding: 0rem 5% 0rem 5%;
+         }
+
+         @include screen(medium) {
+            padding: 0 5% 0 5%;
+            height: 100%;
+         }
       }
+
 
       &__logo {
          display: flex;
@@ -95,16 +105,16 @@
          justify-content: center;
 
          .icon-burger {
-             font-size: 27px;
-             padding: 9.5px;
-             background-color: $color-primary;
-             border: 5px solid rgb(112, 112, 4);
-             border-radius: 50%;
-             color: $bg-color;
+            font-size: 27px;
+            padding: 9.5px;
+            background-color: $color-primary;
+            border: 5px solid rgb(112, 112, 4);
+            border-radius: 50%;
+            color: $bg-color;
          }
       }
 
-      .overlay{
+      .overlay {
          width: 100%;
          height: 100vh;
          background-color: #141414e7;
@@ -131,7 +141,7 @@
 
             a {
                text-decoration: none;
-               font-size: 22px;
+               font-size: 20px;
                color: #fff;
                font-weight: bold;
                margin: auto;
@@ -159,12 +169,12 @@
    }
 }
 
-.openMenu{
- height: 47vh;
- transition: 0.3s ease-in;
+.openMenu {
+   height: 50vh;
+   transition: 0.3s ease-in;
 }
 
-.closeMenu{
+.closeMenu {
    height: 0;
    transition: 0.3s ease-out;
 }

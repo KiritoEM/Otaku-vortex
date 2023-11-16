@@ -7,6 +7,15 @@
      &__container{
         padding: 4rem 6.2% 4rem 6.2%;
 
+        @include screen(small) {
+            padding: 4rem 5% 4rem 5%;
+        }
+
+
+        @include screen(medium) {
+            padding: 4rem 5% 4rem 5%;
+        }
+
          .section-header{
 
             h3{
@@ -68,6 +77,10 @@
                         flex-direction: row;
                         gap: 10px;
 
+                        @include screen(medium) {
+                            gap: 6px;
+                        }
+
                         h5{
                             color: #fff;
                             border: 2px solid $color-primary;
@@ -75,6 +88,10 @@
                             color: $color-primary;
                             padding: 4px 10px 4px 10px;
                             font-size: 17px;
+
+                            @include screen(medium) {
+                                font-size: 15px;
+                            }
                         }
                     }
 

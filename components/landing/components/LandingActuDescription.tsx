@@ -3,7 +3,7 @@ import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 const LandingActuDescription = (): JSX.Element => {
   const { LandingActuData } = arrayLandingHelpers();
   return (
-    <div className="col-7">
+    <div className="col-md-7">
       <div className="section-description">
         <div className="title">
           <h1>{LandingActuData.title}</h1>

@@ -21,12 +21,28 @@
             text-align: start;
             padding: 1.2rem 4.2% 1.2rem 10.2%;
 
+            @include screen(small) {
+                padding: 1.2rem 6% 1.2rem 6%;
+            }
+
+            @include screen(medium) {
+                padding: 3rem 5% 3rem 5%;
+            }
+
             .title {
                 h1 {
                     font-size: 3.42em;
                     font-weight: bold;
                     color: #fff;
                     font-family: $paypen-font;
+
+                    @include screen(small) {
+                        font-size: 2.1em;
+                    }
+
+                    @include screen(medium) {
+                        font-size: 2.4em;
+                    }
                 }
             }
 
@@ -38,10 +54,19 @@
                     text-transform: uppercase;
                     font-weight: bold;
                     word-spacing: 5px;
+
+                    @include screen(small) {
+                        font-size: 19px;
+                    }
+
+                    @include screen(medium) {
+                        font-size: 20px;
+                    }
                 }
             }
 
             .typeS {
+                white-space: nowrap;
                 p {
                     background-color: $bg-color;
                     text-align: center;
@@ -64,6 +89,10 @@
                  h3{
                     color: #fff;
                     font-size: 24px;
+
+                    @include screen(small) {
+                        font-size: 20px;                     
+                    }
                  }
 
                  p{
@@ -76,6 +105,11 @@
                     background-color: $color-primary;
                     width: 100%;
                     text-align: center;
+
+                    @include screen(small) {
+                        font-size: 18px;
+                        padding: 8px;
+                    }
                  }
             }
 

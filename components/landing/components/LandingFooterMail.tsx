@@ -9,7 +9,7 @@ interface Iprops {
 const LandingFooterMail: React.FC<Iprops> = ({ handleSubmit }): JSX.Element => {
   const { LandingFooterData } = arrayLandingHelpers();
   return (
-    <div className="col-5">
+    <div className="col-md-6 col-lg-5">
       <div className="section-mail">
         <div className="title">
           <FontAwesomeIcon icon={faEnvelope} className="icon" />

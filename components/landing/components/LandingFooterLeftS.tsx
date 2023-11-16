@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const LandingFooterLeftS = () : JSX.Element  => {
     const {LandingFooterData} = arrayLandingHelpers()
     return (
-      <div className="col-7">
+      <div className="col-md-6 col-lg-7">
         <div className="section-left-side">
           <div className="title">
             <div className="circle"></div>

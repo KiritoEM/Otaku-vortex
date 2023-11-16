@@ -12,7 +12,7 @@ const LandingHero = (): JSX.Element => {
           backgroundImage: `url("${landingHeroData.backgroundSource}")`,
         }}
       >
-        <div className="row gx-5">
+        <div className="row gy-4 gx-0 gx-md-3 gx-lg-5 gy-md-1">
           {/* =============section-description============ */}
           <LandingHeroDescription />
 
