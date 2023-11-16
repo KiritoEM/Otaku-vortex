@@ -7,7 +7,7 @@
       position: fixed;
       height: 5rem;
       background-color: #141414;
-      z-index: 700;
+      z-index: 800;
       box-shadow: 15px 0 15px black;
 
       &__container {
@@ -112,16 +112,16 @@
       }
 
       &__responsive {
-         z-index: 400;
+         z-index: 200;
          width: 100%;
          background-color: $bg-color;
          overflow: hidden;
-         padding-top: 3rem;
          box-shadow: 8px 0 15px rgb(24, 23, 23);
 
          ul {
             display: flex;
             position: relative;
+            top: 3rem;
             padding: 0;
             flex-direction: column;
             gap: 38px;
@@ -160,11 +160,13 @@
 }
 
 .openMenu{
- height: 46vh;
+ height: 47vh;
+ transition: 0.3s ease-in;
 }
 
 .closeMenu{
    height: 0;
+   transition: 0.3s ease-out;
 }
 
 @keyframes flip {

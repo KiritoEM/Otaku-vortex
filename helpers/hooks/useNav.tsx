@@ -7,24 +7,26 @@ interface IAuthProvider {
 interface INavContext {
   openMenu: boolean;
   openOverlay: boolean;
-  menuToogle: (e: any) => void;
+  menuToogle: () => void;
 }
 
 interface IDefaultNavContext {
     openMenu: false;
     openOverlay: false;
-    menuToogle: (e: any) => null;
+    menuToogle: () => null;
   }
 const NavContext = createContext<INavContext | IDefaultNavContext | null>(null);
 
-export const NavProvider: React.FC<IAuthProvider> = ({ children }) => {
+export const NavProvider: React.FC<IAuthProvider> = ({ children }): JSX.Element => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [openOverlay, setOpenOverlay] = useState<boolean>(false);
 
   //toogle function
-  const menuToogle = (e: any) => {
-    setOpenMenu((state) => !state);
-    setOpenOverlay((state) => !state);
+  const menuToogle = () => {
+    setOpenMenu(!openMenu);
+    setOpenOverlay(!openOverlay);
+    console.log('menu: ',openMenu)
+    console.log('overlay: ',openOverlay)
   };
 
   return (
