@@ -5,13 +5,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
+npm run otaku-vortex
 # or
-yarn dev
+yarn otaku-vortex
 # or
-pnpm dev
+pnpm otaku-vortex
 # or
-bun dev
+bun otaku-vortex
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
