@@ -9,7 +9,9 @@ import {
 import { faFacebook, faGit, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons/faEnvelopeCircleCheck";
 
-
+/*
+  type of Navbar Landing
+*/
 type InavLandingData = {
   logo: string;
   logo_title: string;
@@ -17,32 +19,43 @@ type InavLandingData = {
   navButton: InavButton[];
 };
 
+/*
+  interface of navItems from InavLandingData
+*/
 interface InavItems {
   label: string;
   icon?: IconProp;
   href: string;
 }
 
+/*
+  interface of navButtons from InavLandingData
+*/
 interface InavButton {
   label: string;
   href: string;
 }
 
+/*
+  interface of LandingPage Hero
+*/
 interface IlandingHero {
   backgroundSource: string;
-  title: string;
-  description: string;
-  buttonText: string;
-  buttonLink: string;
   buttonIcon: IconProp;
   pictureSource: string;
 }
 
+/*
+  interface of LandingPage RecentPost
+*/
 interface IlandingRecent {
   title: string;
   content: IPostRecentItems[];
 }
 
+/*
+  interface of content from ILandingRecent
+*/
 interface IPostRecentItems {
   backgroundSource: string;
   title: string;
@@ -50,6 +63,9 @@ interface IPostRecentItems {
   type?: string;
 }
 
+/*
+  interface of LandingPage Actu
+*/
 interface IActu {
   imageSource: string;
   title: string;
@@ -59,29 +75,41 @@ interface IActu {
   comeOutDate: string;
 }
 
+/*
+  interface of LandingPage Footer
+*/
 interface ILandingFooter{
   leftSide:IleftSide
   mail: Imail
 }
 
+/*
+  interface of LeftSide of ILandingFooter
+*/
 interface IleftSide{
-  title: string,
   contactItems: IcontactItems[]
 }
 
+/*
+  interface of contact items of IleftSide
+*/
 interface IcontactItems{
   iconfooter: IconProp,
   label: string,
 }
 
+/*
+  interface of mail  of ILandingFooter
+*/
 interface Imail {
-  title: string,
   emailInputPlaceHolder:string,
   textInputPlaceHolder:string,
   ButtonValue: string
 }
 
+//function arrayLandingData
 export default function arrayLandingHelpers() {
+  //Landing Navbar Object-ArrayData
   const navLandingData: InavLandingData = {
     logo: "/logo.webp",
     logo_title: `Otaku-<span>Vortex</span>`,
@@ -97,17 +125,14 @@ export default function arrayLandingHelpers() {
     ],
   };
 
+  //Landing Hero ObjectData
   const landingHeroData: IlandingHero = {
     backgroundSource: "/banner3.jpg",
-    title: `Bienvenue sur <span>Otaku-Vortex</span>`,
-    description:
-      "Une communauté dédiée aux passionnés d'animes et de la culture otaku. Rejoignez-nous pour découvrir, discuter et partager votre amour pour les animés.",
-    buttonText: "Rejoindre la communauté",
-    buttonLink: "/lien-du-bouton",
     buttonIcon: faArrowRight,
     pictureSource: "/banner3.jpg",
   };
 
+  //Landing Recent Object-ArrayData
   const landingRecentData: IlandingRecent = {
     title: "Animés récents et populaires",
     content: [
@@ -163,6 +188,7 @@ export default function arrayLandingHelpers() {
     ],
   };
 
+  //Landing Actu ObjectData
   const LandingActuData: IActu = {
     imageSource: "/landing/Boruto-two-blue-vortex.jpg",
     genre: "Nouvele série de Boruto",
@@ -172,9 +198,9 @@ export default function arrayLandingHelpers() {
     backgroundSource: "/landing/boruto-black.png",
   };
 
+  //Landing Footer Object-ArrayData
   const LandingFooterData: ILandingFooter = {
     leftSide: {
-      title: "Nous contacter",
       contactItems:[
         {label: "Hi Ro", iconfooter:faFacebook},
         {label: "loickemadesemadisson@gmail.com", iconfooter:faEnvelopeCircleCheck},
@@ -182,13 +208,13 @@ export default function arrayLandingHelpers() {
       ],
     },
     mail:{
-      title:"Envoyez nous un email",
       emailInputPlaceHolder:"Votre adresse email ...",
       textInputPlaceHolder:"Le contenu de l'email ...",
       ButtonValue:"Envoyer"
     }
   };
 
+  //array and objetct Data exportation
   return {
     navLandingData,
     landingHeroData,

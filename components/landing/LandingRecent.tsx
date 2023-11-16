@@ -6,9 +6,12 @@ const LandingRecent = (): JSX.Element => {
   return (
     <section className="landing-recent">
       <div className="landing-recent__container">
+        {/* =============section-header============ */}
         <div className="section-header">
           <h3>{landingRecentData.title}</h3>
         </div>
+
+        {/* =============section-content============ */}
         <LandingRecentContent />
       </div>
     </section>

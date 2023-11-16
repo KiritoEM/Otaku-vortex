@@ -1,6 +1,7 @@
 .landing-footer {
     width: 100%;
     background-color: $bg-color;
+    box-shadow: -15px 0 15px black;
 
     &__container {
         padding: 2rem 6.2% 2.5rem 6.2%;
@@ -101,14 +102,14 @@
 
                 
              input{
-                width: 94%;
+                width: 90%;
                 height: 3rem;
                 border-radius: 15px;
                 background-color: #e7dfdf;
              }
 
              button{
-                width: 94%;
+                width: 90%;
                 height: 3rem;
                 color: #383636;
                 font-weight: bold;

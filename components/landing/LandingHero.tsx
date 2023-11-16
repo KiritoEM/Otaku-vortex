@@ -13,13 +13,11 @@ const LandingHero = (): JSX.Element => {
         }}
       >
         <div className="row gx-5">
-          <div className="col-6">
-            <LandingHeroDescription />
-          </div>
+          {/* =============section-description============ */}
+          <LandingHeroDescription />
 
-          <div className="col-6">
-            <LandingHeroPictures />
-          </div>
+          {/* =============section-picture============ */}
+          <LandingHeroPictures />
         </div>
       </div>
     </section>

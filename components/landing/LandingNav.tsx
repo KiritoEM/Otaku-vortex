@@ -18,7 +18,7 @@ const LandingNav = (): JSX.Element => {
       {/* =============Navbar Menu Items============ */}
       <LandingNavItems />
 
-      {/* =============Navbar Menu Auth============ */}
+      {/* =============Navbar Menu Authentification Button============ */}
       <LandingNavButton />
     </div>
   );

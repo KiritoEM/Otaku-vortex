@@ -13,7 +13,10 @@ const LandingActu = (): JSX.Element => {
         }}
       >
         <div className="row">
+          {/* =============section-description============ */}
           <LandingActuDescription />
+
+          {/* =============section-picture============ */}
           <LandingActuPictures />
         </div>
       </div>

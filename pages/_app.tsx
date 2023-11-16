@@ -1,6 +1,6 @@
 import "./../styles/global.scss";
 import type { AppProps } from "next/app";
-import useLoader from "@/hooks/useLoader";
+import useLoader from "@/helpers/hooks/useLoader";
 import Loader from "@/components/Loader";
 import { useEffect } from "react";
 

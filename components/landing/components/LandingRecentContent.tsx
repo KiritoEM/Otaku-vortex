@@ -1,7 +1,7 @@
 import LandingRecentCard from "./LandingRecentCard";
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 
-const LandingRecentContent = (): JSX.Element => {
+const LandingRecentContent = (): JSX.Element  => {
   const { landingRecentData } = arrayLandingHelpers();
   return (
     <div className="section-content mt-5">

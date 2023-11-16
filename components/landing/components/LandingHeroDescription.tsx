@@ -4,17 +4,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const LandingHeroDescription = (): JSX.Element => {
     const {landingHeroData} = arrayLandingHelpers();
   return (
-    <div className="section-description">
-      <div className="title">
-      <h1
-          dangerouslySetInnerHTML={{ __html: landingHeroData.title }}
-        />
-      </div>
-      <div className="description mt-4">
-        <p>{landingHeroData.description}</p>
-      </div>
-      <div className="button mt-4">
-         <button className="btn">{landingHeroData.buttonText} <FontAwesomeIcon icon={landingHeroData.buttonIcon} className="mx-2"/></button>
+    <div className="col-6">
+      <div className="section-description">
+        <div className="title">
+          <h1>
+            Bienvenue sur <span>Otaku-Vortex</span>
+          </h1>
+        </div>
+        <div className="description mt-4">
+          <p>
+            Une communauté dédiée aux passionnés d'animes et de la culture
+            otaku. Rejoignez-nous pour découvrir, discuter et partager votre
+            amour pour les animés.
+          </p>
+        </div>
+        <div className="button mt-4">
+          <button className="btn">
+            Rejoindre la communauté
+            <FontAwesomeIcon
+              icon={landingHeroData.buttonIcon}
+              className="mx-2"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
