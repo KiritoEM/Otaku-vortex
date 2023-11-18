@@ -7,7 +7,7 @@ const LoginForm = (): JSX.Element => {
   const { navLandingData } = arrayLandingHelpers();
   const {loginData} = AuthDataHelper()
   return (
-    <div className="col-12  col-md-6">
+    <div className="col-lg-6">
       <div className="section-form">
         <div className="section-form__container">
           <div className="logo">

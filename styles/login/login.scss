@@ -1,19 +1,21 @@
 .login {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
     background-color: $bg-color;
     background-size: cover;
     background-position: right center;
-    padding: 0;
-    margin: 0;
 
     @include screen(small) {
         background-image: url("/Authentification/cover.jpg");
         background-color: transparent;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
     }
+
+    @include screen(medium) {
+        background-image: url("/Authentification/cover.jpg");
+        background-color: transparent;
+    }
+
 
     &::before {
         content: "";
@@ -25,6 +27,10 @@
         z-index: 1;
 
         @include screen(small) {
+            background-color: rgba(0, 0, 0, 0.747);
+        }
+
+        @include screen(medium) {
             background-color: rgba(0, 0, 0, 0.747);
         }
     }
@@ -41,11 +47,14 @@
             height: 100vh;
         }
 
+        @include screen(medium) {
+            margin: 0 auto;
+            padding: 0 17% 0 17%;
+        }
+
         .section-form {
             height: 100vh;
             width: 100%;
-
-
 
             &__container {
                 width: 100%;
@@ -57,6 +66,11 @@
 
                 @include screen(small) {
                     padding: 0px;
+                }
+
+
+                @include screen(medium) {
+                    padding: 5px;
                 }
 
                 .logo {
@@ -109,6 +123,11 @@
                         @include screen(small) {
                             width: 100%;
                         }
+
+
+                        @include screen(medium) {
+                            width: 100%;
+                        }
                     }
 
                     .button {
@@ -127,6 +146,9 @@
                             @include screen(small) {
                                 width: 100%;
                             }
+                            @include screen(medium) {
+                                width: 100%;
+                            }
                         }
                     }
                 }
@@ -139,7 +161,10 @@
 
                     @include screen(small) {
                         width: 100%;
+                    }
 
+                    @include screen(medium) {
+                        width: 100%;
                     }
 
                     p {
@@ -179,6 +204,10 @@
                         border-radius: 12px;
 
                         @include screen(small) {
+                            width: 100%;
+                        }
+
+                        @include screen(medium) {
                             width: 100%;
                         }
 
