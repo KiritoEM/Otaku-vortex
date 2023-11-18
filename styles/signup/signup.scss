@@ -26,6 +26,11 @@
         flex-direction: column;
         align-items: center;
 
+        @include screen(small){
+            padding-left: 6vw;
+            padding-right: 6vw;
+        }
+
         .logo {
             display: flex;
             flex-direction: row;
