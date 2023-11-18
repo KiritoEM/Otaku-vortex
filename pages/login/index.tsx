@@ -1,18 +1,23 @@
 import LoginForm from "@/components/login/LoginForm";
 import LoginCover from "@/components/login/LoginCover";
 import metaDataHelper from "@/helpers/metaDataHelper";
+import PageHeading from "@/components/PageHeading";
+import { Fragment } from "react";
 
 const login = (): JSX.Element => {
-  const {} = metaDataHelper();
+  const { metaData } = metaDataHelper();
   return (
-    <section className="login">
-      <div className="login__container">
-        <div className="row gx-5">
-          <LoginForm />
-          <LoginCover />
+    <Fragment>
+      <PageHeading title={metaData.metaTitle.loginTitle} />
+      <section className="login">
+        <div className="login__container">
+          <div className="row gx-5">
+            <LoginForm />
+            <LoginCover />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Fragment>
   );
 };
 

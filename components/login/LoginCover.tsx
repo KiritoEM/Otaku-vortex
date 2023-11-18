@@ -1,8 +1,11 @@
+import AuthDataHelper from "@/helpers/AuthDataHelper";
+
 const LoginCover = (): JSX.Element => {
+  const {loginData} = AuthDataHelper()
     return (
-      <div className="col-6">
+      <div className="col-md-6 d-none d-md-flex">
         <div className="section-cover">
-          <img src="/Authentification/cover.jpg" alt="" />
+          <img src={loginData.cover_src} alt="" />
         </div>
       </div>
     );

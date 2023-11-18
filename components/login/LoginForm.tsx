@@ -3,10 +3,11 @@ import AuthDataHelper from "@/helpers/AuthDataHelper";
 import React from "react";
 
 const LoginForm = (): JSX.Element => {
+  console.log(LoginForm);
   const { navLandingData } = arrayLandingHelpers();
   const {loginData} = AuthDataHelper()
   return (
-    <div className="col-6">
+    <div className="col-12  col-md-6">
       <div className="section-form">
         <div className="section-form__container">
           <div className="logo">
@@ -62,3 +63,4 @@ const LoginForm = (): JSX.Element => {
 };
 
 export default LoginForm;
+

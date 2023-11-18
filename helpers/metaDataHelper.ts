@@ -6,7 +6,7 @@ export default function metaDataHelper() {
    const metaData: ImetaData ={
     metaTitle : {
       landingTitle: "Bienvenue sur Otaku-vortex",
-      loginTitle:"",
+      loginTitle:"Se connecter",
     }
    }
 

@@ -25,8 +25,8 @@ export const NavProvider: React.FC<IAuthProvider> = ({ children }): JSX.Element 
   const menuToogle = () => {
     setOpenMenu(!openMenu);
     setOpenOverlay(!openOverlay);
-    console.log('menu: ',openMenu)
-    console.log('overlay: ',openOverlay)
+    console.log('menu: ',openMenu);
+    console.log('overlay: ',openOverlay);
   };
 
   return (

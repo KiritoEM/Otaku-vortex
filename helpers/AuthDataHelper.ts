@@ -8,7 +8,7 @@ interface IloginData{
 
 export default function AuthDataHelper() {
    const loginData: IloginData= {
-     cover_src: "/Authentification/cover.jpg",
+     cover_src: "/Authentification/cover-removebg.png",
      emailPlaceholder:"Votre email ...",
      PasswordPlaceholder:"Votre mot de passe ...",
      google_img: "/Authentification/icons8-google.png"
