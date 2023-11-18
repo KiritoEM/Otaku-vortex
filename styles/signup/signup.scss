@@ -1,0 +1,147 @@
+.signup {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(/Authentification/signup-cover.png);
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.795);
+    }
+
+    &__container {
+        margin: 0 auto;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .logo {
+            display: flex;
+            flex-direction: row;
+            white-space: nowrap;
+
+            img {
+                width: 42px;
+            }
+
+            h4 {
+                color: #fff;
+                font-size: 24px;
+                margin: auto;
+                font-weight: bold;
+                font-family: $paypen-font;
+
+                span {
+                    font-family: $paypen-font;
+                    color: $color-primary;
+                }
+            }
+        }
+
+        .title{
+
+            h2{
+                color: #fff;
+                font-weight: bolder;
+            }
+        }
+
+        .formulaire{
+
+            
+            input {
+                height: 3.1rem;
+                width: 100%;
+                border-radius: 15px;
+                background-color: #e7dfdf;
+
+                @include screen(small) {
+                    width: 100%;
+                }
+
+
+                @include screen(medium) {
+                    width: 100%;
+                }
+            }
+
+            .button {
+                margin: 0 auto;
+
+                button {
+                    height: 2.9rem;
+                    width: 100%;
+                    font-size: 16px;
+                    color: $bg-color;
+                    font-weight: bold;
+                    border-radius: 15px;
+                    background-color: $color-primary;
+                    border: 0;
+
+                    @include screen(small) {
+                        width: 100%;
+                    }
+                    @include screen(medium) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .authGoogle {
+            width: 100%;
+            margin-top: 2rem;
+            text-align: center;
+            overflow: hidden;
+
+            p {
+                color: #fff;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    margin-top: 12px;
+                    margin-left: -5rem;
+                    width: 70px;
+                    height: 3px;
+                    background-color: #fff;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    margin-top: 12px;
+                    margin-left: 0.6rem;
+                    width: 70px;
+                    height: 3px;
+                    background-color: #fff;
+                }
+            }
+
+            .btn {
+                color: $bg-color;
+                margin-top: 0.7rem;
+                background-color: #fff;
+                font-weight: bold;
+                padding: 10px;
+                width: 100%;
+                border-radius: 12px;
+
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 interface ImetaData {
- metaTitle: {landingTitle: string , loginTitle: string}
+ metaTitle: {landingTitle: string , loginTitle: string, signupTitle: string}
 }
 
 export default function metaDataHelper() {
@@ -7,6 +7,7 @@ export default function metaDataHelper() {
     metaTitle : {
       landingTitle: "Bienvenue sur Otaku-vortex",
       loginTitle:"Se connecter",
+      signupTitle: "S' inscrire"
     }
    }
 
