@@ -1,15 +1,21 @@
 const { sendEmail } = require("../helper/emailHelper");
-const {
-  generateSixDigitCode,
-  codeStore,
-} = require("./../helper/CryptoSixCode");
+const { generateSixDigitCode, codeStore } = require("../helper/codeHelper");
+const { codeVerification, generateCode } = require("./../helper/codeHelper");
+const speakeasy = require("speakeasy");
 
-const sendEmailController = async (req, res) => {
+//secret stored
+let StoredSecret;
+
+//code sendCodeMail Controller
+exports.sendEmailController = async (req, res) => {
   const { userEmail } = req.body;
-  console.log(userEmail);
-  const code = generateSixDigitCode();
-  codeStore(userEmail, code);
-  console.log(codeStore(userEmail, code));
+  console.log("email de l' utilisateur: ", userEmail);
+
+  //code importation
+  const { code, secret } = generateCode();
+  StoredSecret = secret;
+  console.log("code généré: ", code);
+  console.log("secret stocké : ", StoredSecret);
 
   try {
     await sendEmail(userEmail, code);
@@ -19,4 +25,23 @@ const sendEmailController = async (req, res) => {
   }
 };
 
-module.exports = sendEmailController;
+//code verification Controller
+exports.codeVerificationController = async (req, res) => {
+  try {
+    const { userCode } = req.body;
+
+    const verification = await codeVerification(userCode, StoredSecret);
+
+    if (verification) {
+      res.json({ message: "Le Code à 6 chiffres est correct" });
+    } else {
+      res.status(400).json({ message: "Code TOTP invalide" });
+    }
+  } catch (error) {
+    console.error("Erreur lors de la vérification du code TOTP:", error);
+
+    res
+      .status(500)
+      .json({ error: "Erreur lors de la vérification du code TOTP" });
+  }
+};

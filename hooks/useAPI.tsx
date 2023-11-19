@@ -12,23 +12,25 @@ interface IAuthProvider {
 }
 
 interface IAPIContext {
-  sendEmailAPI: (e: any) => void;
+  sendCode: (e: any) => void;
 }
 
 const APIContext = createContext<IAPIContext | null>(null);
 
 export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
-  //email state for API sent
-  const sendEmailAPI = (e: any) => {
-    useEffect(()=>{
-       
-    }, [])
+
+  //code state
+  const [code, setCode] = useState("");
+
+  //sendCode to node js
+  const sendCode = (e: any) => {
+      
   };
 
   return (
     <APIContext.Provider
       value={{
-        sendEmailAPI
+        sendCode
       }}
     >
       {children}

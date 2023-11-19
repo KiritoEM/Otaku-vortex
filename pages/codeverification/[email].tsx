@@ -3,7 +3,7 @@ import AuthDataHelper from "@/helpers/AuthDataHelper";
 import metaDataHelper from "@/helpers/metaDataHelper";
 import { Fragment } from "react";
 import PageHeading from "@/components/PageHeading";
-import sendcodeHelper from "@/helpers/sendcodeHelper";
+import AuthHelper from "@/helpers/AuthHelper";
 import { useRouter } from "next/router";
 
 const codeVerification = (): JSX.Element => {
@@ -12,6 +12,7 @@ const codeVerification = (): JSX.Element => {
   const { metaData } = metaDataHelper();
   const router = useRouter();
   const { email } = router.query;
+  const { postCode } = AuthHelper();
 
   return (
     <Fragment>
@@ -28,8 +29,7 @@ const codeVerification = (): JSX.Element => {
           <div className="title mt-3">
             <h5>
               Nous avons envoyé un email contenant un code à 6 chiffres à l'
-              adresse email :{" "}
-              <span className="mx-3">"{email}"</span>
+              adresse email : <span className="mx-3">"{email}"</span>
             </h5>
           </div>
 
@@ -38,7 +38,7 @@ const codeVerification = (): JSX.Element => {
               action="post"
               onSubmit={(e: any) => {
                 e.preventDefault();
-                sendcodeHelper(e);
+                postCode(e);
               }}
             >
               <div className="form-group">

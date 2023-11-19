@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 // App routes
-app.use("/email", require('./controller/emailController'));
+app.use("/email", require('./routes/email.routes'));
 
 // Start server
 app.listen(process.env.PORT, () => {

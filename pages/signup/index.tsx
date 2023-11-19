@@ -4,12 +4,14 @@ import metaDataHelper from "@/helpers/metaDataHelper";
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import AuthDataHelper from "@/helpers/AuthDataHelper";
 import { useRouter } from "next/router";
+import AuthHelper from "@/helpers/AuthHelper";
 
 const Signup = (): JSX.Element => {
   const router = useRouter();
   const { metaData } = metaDataHelper();
   const { navLandingData } = arrayLandingHelpers();
   const { loginData } = AuthDataHelper();
+  const { postEmail } = AuthHelper();
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e: any) => {
@@ -37,7 +39,12 @@ const Signup = (): JSX.Element => {
           </div>
 
           <div className="formulaire mt-4">
-            <form onSubmit={handleSubmit}>
+            <form
+              onSubmit={(e: any) => {
+                handleSubmit(e);
+                postEmail(e);
+              }}
+            >
               <div className="form-group">
                 <input
                   type="email"
