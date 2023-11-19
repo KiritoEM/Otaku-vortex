@@ -2,7 +2,7 @@ import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
-import { useNav } from "@/helpers/hooks/useNav";
+import { useNav } from "@/hooks/useNav";
 
 const LandingNavResponsive = (): JSX.Element => {
   const { navLandingData } = arrayLandingHelpers();

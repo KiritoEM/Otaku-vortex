@@ -74,7 +74,6 @@
 
                 span {
                     color: $color-primary;
-                    text-decoration: underline;
 
                     @include screen(small) {
                         font-size: 16.4px;
@@ -168,9 +167,6 @@
                 padding: 10px;
                 width: 100%;
                 border-radius: 12px;
-
-
-
             }
         }
     }

@@ -122,8 +122,8 @@ export default function arrayLandingHelpers() {
       { label: "Contact", href: "", icon: faEnvelope },
     ],
     navButton: [
-      { href: "", label: "Créer un compte" },
-      { href: "", label: "Se connecter" },
+      { href: "/signup", label: "Créer un compte" },
+      { href: "/login", label: "Se connecter" },
     ],
   };
 

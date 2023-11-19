@@ -1,5 +1,5 @@
 import { Fragment, ReactNode } from "react";
-import { NavProvider } from "@/helpers/hooks/useNav";
+import { NavProvider } from "@/hooks/useNav";
 
 interface Iprops {
   children: ReactNode;

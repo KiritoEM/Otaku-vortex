@@ -4,21 +4,19 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_ADRESS,
+    user: process.env.EMAIL_SENDER,
     pass: process.env.EMAIL_PASSWORD,
   },
 });
 
 // Fonction pour l'envoi du mail
-const sendEmail = (senderMail, userText) => {
+const sendEmail = (userMail, code) => {
   const mailOptions = {
-    from: `${senderMail}`,
-    to: "loickemadesemadisson@gmail.com",
-    subject: "Otaku-vortex",
-    text: `${userText}`,
+    from: process.env.EMAIL_SENDER,
+    to: `${userMail}`,
+    subject: "Otaku Vortex - vérification de code",
+    text: `Votre code de vérification : ${code}`,
   };
-
-  console.log(mailOptions);
 
   //fonction de retour pour le mailer
   return transporter.sendMail(mailOptions);

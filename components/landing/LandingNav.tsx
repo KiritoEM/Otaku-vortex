@@ -5,7 +5,7 @@ import LandingNavButton from "./components/LandingNavButton";
 import LandingNavResponsive from "./components/LandingNavResponsive";
 import { Fragment } from "react";
 import MenuHamburger from "./components/MenuHamburger";
-import { useNav } from "@/helpers/hooks/useNav";
+import { useNav } from "@/hooks/useNav";
 
 interface Iaction {
   action: () => void;

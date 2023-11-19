@@ -1,6 +1,6 @@
 import "./../styles/global.scss";
 import type { AppProps } from "next/app";
-import useLoader from "@/helpers/hooks/useLoader";
+import useLoader from "@/hooks/useLoader";
 import Loader from "@/components/Loader";
 import { useEffect } from "react";
 import AppProvider from "@/provider/AppProvider";
@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 0);
+    }, 1110);
   }, [loading]);
 
   return (

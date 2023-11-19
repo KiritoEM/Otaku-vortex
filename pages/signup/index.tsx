@@ -1,13 +1,24 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import PageHeading from "@/components/PageHeading";
 import metaDataHelper from "@/helpers/metaDataHelper";
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import AuthDataHelper from "@/helpers/AuthDataHelper";
+import { useRouter } from "next/router";
 
-const signup = (): JSX.Element => {
+const Signup = (): JSX.Element => {
+  const router = useRouter();
   const { metaData } = metaDataHelper();
   const { navLandingData } = arrayLandingHelpers();
   const { loginData } = AuthDataHelper();
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const form = e.target;
+    const emailValue = form["email"].value;
+    setEmail(emailValue);
+    router.push(`/codeverification/${emailValue}`);
+  };
 
   return (
     <Fragment>
@@ -22,11 +33,11 @@ const signup = (): JSX.Element => {
             />
           </div>
           <div className="title mt-3">
-            <h2>S' incrire en créant votre compte</h2>
+            <h2>S'inscrire en créant votre compte</h2>
           </div>
 
           <div className="formulaire mt-4">
-            <form action="post">
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <input
                   type="email"
@@ -46,12 +57,7 @@ const signup = (): JSX.Element => {
               <div className="authGoogle">
                 <p>OU</p>
                 <button className="btn">
-                  {" "}
-                  <img
-                    src={loginData.google_img}
-                    className="mx-2"
-                    alt=""
-                  />{" "}
+                  <img src={loginData.google_img} className="mx-2" alt="" />
                   Continuer avec Google
                 </button>
               </div>
@@ -63,4 +69,4 @@ const signup = (): JSX.Element => {
   );
 };
 
-export default signup;
+export default Signup;
