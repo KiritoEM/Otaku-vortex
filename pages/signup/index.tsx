@@ -29,7 +29,7 @@ const Signup = (): JSX.Element => {
             <h2>S'inscrire en créant votre compte</h2>
           </div>
 
-          <div className="formulaire mt-4">
+          <div className="formulaire mt-5">
             <form
               onSubmit={(e: any) => {
                 postEmail(e);
@@ -45,7 +45,7 @@ const Signup = (): JSX.Element => {
                   placeholder={`${loginData.emailPlaceholder}`}
                 />
               </div>
-              <div className="button mt-4">
+              <div className="button mt-5">
                 <button type="submit" className="btn">
                   Créer un compte
                 </button>

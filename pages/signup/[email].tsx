@@ -51,10 +51,11 @@ const codeVerification = (): JSX.Element => {
                   placeholder="Entrez le code à 6 chiffres ..."
                 />
               </div>
-              <div className="button mt-4">
-                <button type="submit" className="btn">
+              <div className="button mt-5">
+                <a href="/signup/inscriptionfinal"><button type="submit" className="btn">
                   Envoyer
                 </button>
+                </a>
               </div>
             </form>
           </div>

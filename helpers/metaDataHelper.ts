@@ -1,14 +1,15 @@
 interface ImetaData {
- metaTitle: {landingTitle: string , loginTitle: string, signupTitle: string, codeVerification: string}
+ metaTitle: {landingTitle: string , loginTitle: string, signupTitle: string, codeVerification: string, signupFinal: string}
 }
 
 export default function metaDataHelper() {
    const metaData: ImetaData ={
     metaTitle : {
       landingTitle: "Bienvenue sur Otaku-vortex",
-      loginTitle:"Se connecter",
-      signupTitle: "S' inscrire",
-      codeVerification: "Entrez le code à 6 chiffres"
+      loginTitle:"Se connecter à Otaku-vortex",
+      signupTitle: "S' inscrire à Otaku-vortex",
+      codeVerification: "Entrez le code à 6 chiffres",
+      signupFinal:"Finaliser votre inscripiton"
     }
    }
 

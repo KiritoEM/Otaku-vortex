@@ -43,7 +43,7 @@ const LoginForm = (): JSX.Element => {
                   placeholder={`${loginData.PasswordPlaceholder}`}
                 />
               </div>
-              <div className="button mt-4">
+              <div className="button mt-5">
                 <button type="submit" className="btn">
                   Se connecter
                 </button>

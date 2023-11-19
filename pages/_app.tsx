@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1110);
+    }, 0);
   }, [loading]);
 
   return (

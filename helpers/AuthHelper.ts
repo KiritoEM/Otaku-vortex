@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 export default function AuthHelper() {
   const router = useRouter();
 
-  // Récupération des valeurs de l'input
   const postEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -15,7 +14,7 @@ export default function AuthHelper() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8001/email/sendEmail",
+        "http://localhost:8000/email/sendEmail",
         {
           userEmail: email,
         }
@@ -24,7 +23,7 @@ export default function AuthHelper() {
       console.log(response);
 
       if (response.status === 200) {
-        router.push(`/codeverification/${email}`);
+        router.push(`/signup/${email}`);
       } else {
         alert("Impossible d' envoyer l' email");
       }
@@ -42,7 +41,7 @@ export default function AuthHelper() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8001/email/codeVerification",
+        "http://localhost:8000/email/codeVerification",
         {
           userCode: code,
         }
