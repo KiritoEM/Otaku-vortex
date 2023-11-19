@@ -43,7 +43,7 @@ const codeVerification = (): JSX.Element => {
             >
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   name="code"
                   id="exampleInputCODE1"

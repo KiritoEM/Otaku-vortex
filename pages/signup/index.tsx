@@ -12,15 +12,6 @@ const Signup = (): JSX.Element => {
   const { navLandingData } = arrayLandingHelpers();
   const { loginData } = AuthDataHelper();
   const { postEmail } = AuthHelper();
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const form = e.target;
-    const emailValue = form["email"].value;
-    setEmail(emailValue);
-    router.push(`/codeverification/${emailValue}`);
-  };
 
   return (
     <Fragment>
@@ -41,7 +32,6 @@ const Signup = (): JSX.Element => {
           <div className="formulaire mt-4">
             <form
               onSubmit={(e: any) => {
-                handleSubmit(e);
                 postEmail(e);
               }}
             >

@@ -18,10 +18,14 @@ exports.sendEmailController = async (req, res) => {
   console.log("secret stocké : ", StoredSecret);
 
   try {
-    await sendEmail(userEmail, code);
-    res.status(200).json({ message: "E-mail envoyé avec succès!" });
+    const response = await sendEmail(userEmail, code);
+    if (response) {
+      res.status(200).json({ message: "E-mail envoyé avec succès!" });
+    } else {
+      res.status(500).json({ message: "E-mail non envoyé" });
+    }
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    console.log(error);
   }
 };
 
@@ -38,10 +42,6 @@ exports.codeVerificationController = async (req, res) => {
       res.status(400).json({ message: "Code TOTP invalide" });
     }
   } catch (error) {
-    console.error("Erreur lors de la vérification du code TOTP:", error);
-
-    res
-      .status(500)
-      .json({ error: "Erreur lors de la vérification du code TOTP" });
+    console.log(error);
   }
 };
