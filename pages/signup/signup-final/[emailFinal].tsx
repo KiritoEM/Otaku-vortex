@@ -6,7 +6,6 @@ import AuthDataHelper from "@/helpers/AuthDataHelper";
 import { Fragment, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AuthHelper from "@/helpers/AuthHelper";
-import axios from "axios";
 
 const inscripitonfinal = (): JSX.Element => {
   const { metaData } = metaDataHelper();

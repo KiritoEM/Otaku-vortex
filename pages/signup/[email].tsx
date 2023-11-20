@@ -64,7 +64,7 @@ export async function getServerSideProps() {
   try {
     const response = await axios.get("http://localhost:8000/email/getEmail");
     if (response.status === 200) {
-      const emailData = response.data.email;
+      let emailData = response.data.email;
       return {
         props: {
           userEmail: emailData || "", 
