@@ -3,7 +3,11 @@ const app = express();
 const dotenv = require("dotenv").config();
 const cors = require("cors");
 const morgan = require("morgan");
-const compression = require('compression');
+const compression = require("compression");
+const ConnectDB = require("./database/database");
+
+//connexion with mongoDB
+ConnectDB();
 
 // App middlewares
 app.use(cors());
@@ -13,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 // App routes
-app.use("/email", require('./routes/email.routes'));
+app.use("/email", require("./routes/email.routes"));
 
 // Start server
 app.listen(process.env.PORT, () => {
