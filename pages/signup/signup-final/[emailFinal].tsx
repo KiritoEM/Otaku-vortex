@@ -15,7 +15,8 @@ const inscripitonfinal = (): JSX.Element => {
   const router = useRouter();
   const { emailFinal } = router.query;
   const { postSignup } = AuthHelper();
-  // const [userEmail, setUserEmail] = useState<string>("");
+
+  console.log('emailFinal', emailFinal)
 
   return (
     <Fragment>
@@ -65,10 +66,10 @@ const inscripitonfinal = (): JSX.Element => {
                   {signupData.passwordlabel}
                 </label>
                 <input
-                  type="email"
+                  type="password"
                   className="form-control"
                   name="password"
-                  aria-describedby="emailHelp"
+                  aria-describedby="passwordHelp"
                   placeholder={`${signupData.passwordPlaceholder}`}
                 />
               </div>
