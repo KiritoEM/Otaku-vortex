@@ -8,4 +8,7 @@ router.post("/sendEmail", emailController.sendEmailController);
 //route code-verification
 router.post("/codeVerification", emailController.codeVerificationController);
 
+//get email to front
+router.get("/getEmail", emailController.sendEmail);
+
 module.exports = router;

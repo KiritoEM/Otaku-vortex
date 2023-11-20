@@ -1,9 +1,11 @@
 import axios from "axios";
 import React from "react";
 import { useRouter } from "next/router";
+import useAPI from "@/hooks/useAPI";
 
 export default function AuthHelper() {
   const router = useRouter();
+  // const { emailValue, setEmail } = useAPI();
 
   const postEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,8 +34,11 @@ export default function AuthHelper() {
     }
   };
 
-  const postCode = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
+  const postCode = async (
+    e: React.FormEvent<HTMLFormElement>,
+    userEmail: string
+  ) => {
+    e.preventDefault();
 
     const form = e.currentTarget;
     const code = form["code"].value;
@@ -49,10 +54,40 @@ export default function AuthHelper() {
 
       console.log(response);
 
+      if (response.status === 200) {
+        router.push(`/signup/signup-final/${userEmail}`);
+      } else {
+        alert("Impossible d' envoyer l' email");
+      }
     } catch (error) {
       console.error("Erreur lors de la vérification du code :", error);
     }
   };
 
-  return { postEmail, postCode };
+  const postSignup = async (
+    e: React.FormEvent<HTMLFormElement>,
+    userEmail: string
+  ) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const username = form["username"].value;
+    const password = form["password"].value;
+    console.log("nom d' utilisateur: ", username);
+    console.log("mot de passe: ", password);
+
+    try {
+      const response = await axios.post("http://localhost:8000/auth/signup", {
+        username: username,
+        email: userEmail,
+        password: password,
+      });
+
+      console.log(response);
+    } catch (error) {
+      console.error("Erreur lors de la vérification du code :", error);
+    }
+  };
+
+  return { postEmail, postCode, postSignup };
 }

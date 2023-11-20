@@ -1,21 +1,17 @@
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import AuthDataHelper from "@/helpers/AuthDataHelper";
 import metaDataHelper from "@/helpers/metaDataHelper";
-import { Fragment } from "react";
 import PageHeading from "@/components/PageHeading";
 import AuthHelper from "@/helpers/AuthHelper";
-import { useRouter } from "next/router";
+import axios from "axios";
 
-const codeVerification = (): JSX.Element => {
+const CodeVerification = ({ userEmail }: {userEmail: string} ) => {
   const { navLandingData } = arrayLandingHelpers();
-  const { loginData } = AuthDataHelper();
   const { metaData } = metaDataHelper();
-  const router = useRouter();
-  const { email } = router.query;
   const { postCode } = AuthHelper();
 
   return (
-    <Fragment>
+    <div>
       <PageHeading title={metaData.metaTitle.codeVerification} />
       <section className="code-verification">
         <div className="code-verification__container">
@@ -28,17 +24,17 @@ const codeVerification = (): JSX.Element => {
           </div>
           <div className="title mt-3">
             <h5>
-              Nous avons envoyé un email contenant un code à 6 chiffres à l'
-              adresse email : <span className="mx-3">"{email}"</span>
+              Nous avons envoyé un email contenant un code à 6 chiffres à
+              l'adresse email : <span className="mx-3">"{userEmail}"</span>
             </h5>
           </div>
 
           <div className="formulaire mt-5">
             <form
               action="post"
-              onSubmit={(e: any) => {
+              onSubmit={(e) => {
                 e.preventDefault();
-                postCode(e);
+                postCode(e, userEmail);
               }}
             >
               <div className="form-group">
@@ -52,17 +48,44 @@ const codeVerification = (): JSX.Element => {
                 />
               </div>
               <div className="button mt-5">
-                <a href="/signup/inscriptionfinal"><button type="submit" className="btn">
+                <button type="submit" className="btn">
                   Envoyer
                 </button>
-                </a>
               </div>
             </form>
           </div>
         </div>
       </section>
-    </Fragment>
+    </div>
   );
 };
 
-export default codeVerification;
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get("http://localhost:8000/email/getEmail");
+    if (response.status === 200) {
+      const emailData = response.data.email;
+      return {
+        props: {
+          userEmail: emailData || "", 
+        },
+      };
+    } else {
+      console.error("Erreur lors de la récupération des données d'e-mail");
+      return {
+        props: {
+          userEmail: "",
+        },
+      };
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération des données d'e-mail :", error);
+    return {
+      props: {
+        userEmail: "",
+      },
+    };
+  }
+}
+
+export default CodeVerification;

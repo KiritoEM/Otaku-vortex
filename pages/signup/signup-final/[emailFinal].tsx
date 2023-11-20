@@ -1,14 +1,21 @@
+import { useRouter } from "next/router";
 import PageHeading from "@/components/PageHeading";
 import metaDataHelper from "@/helpers/metaDataHelper";
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import AuthDataHelper from "@/helpers/AuthDataHelper";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AuthHelper from "@/helpers/AuthHelper";
+import axios from "axios";
 
-const inscripitonfinal = () => {
+const inscripitonfinal = (): JSX.Element => {
   const { metaData } = metaDataHelper();
   const { navLandingData } = arrayLandingHelpers();
   const { signupData } = AuthDataHelper();
+  const router = useRouter();
+  const { emailFinal } = router.query;
+  const { postSignup } = AuthHelper();
+  // const [userEmail, setUserEmail] = useState<string>("");
 
   return (
     <Fragment>
@@ -27,10 +34,19 @@ const inscripitonfinal = () => {
           </div>
 
           <div className="formulaire mt-5">
-            <form>
+            <form
+              action="post"
+              onSubmit={(e: any) => {
+                postSignup(e, emailFinal as string);
+              }}
+            >
               <div className="form-group">
                 <label htmlFor="">
-                    <FontAwesomeIcon icon={signupData.nameIcon} className="mx-2"/>{signupData.namelabel}
+                  <FontAwesomeIcon
+                    icon={signupData.nameIcon}
+                    className="mx-2"
+                  />
+                  {signupData.namelabel}
                 </label>
                 <input
                   type="text"
@@ -41,8 +57,12 @@ const inscripitonfinal = () => {
                 />
               </div>
               <div className="form-group mt-4">
-              <label htmlFor="">
-              <FontAwesomeIcon icon={signupData.passwordIcon} className="mx-2"/>{signupData.passwordlabel}
+                <label htmlFor="">
+                  <FontAwesomeIcon
+                    icon={signupData.passwordIcon}
+                    className="mx-2"
+                  />
+                  {signupData.passwordlabel}
                 </label>
                 <input
                   type="email"

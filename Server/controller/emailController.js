@@ -5,6 +5,7 @@ const speakeasy = require("speakeasy");
 
 //secret stored
 let StoredSecret;
+let StoredEmail;
 
 //code sendCodeMail Controller
 exports.sendEmailController = async (req, res) => {
@@ -21,6 +22,7 @@ exports.sendEmailController = async (req, res) => {
     const response = await sendEmail(userEmail, code);
     if (response) {
       res.status(200).json({ message: "E-mail envoyé avec succès!" });
+      StoredEmail = userEmail;
     } else {
       res.status(500).json({ message: "E-mail non envoyé" });
     }
@@ -33,6 +35,7 @@ exports.sendEmailController = async (req, res) => {
 exports.codeVerificationController = async (req, res) => {
   try {
     const { userCode } = req.body;
+    console.log("email stocké", StoredEmail);
 
     const verification = await codeVerification(userCode, StoredSecret);
 
@@ -43,5 +46,14 @@ exports.codeVerificationController = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+exports.sendEmail = (req, res) => {
+  console.log("email stocké", StoredEmail);
+  if (StoredEmail) {
+    res.status(200).json({ email: StoredEmail });
+  } else {
+    res.status(404).json({ message: "E-mail non trouvé" });
   }
 };
