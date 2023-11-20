@@ -18,6 +18,7 @@ app.use(morgan("dev"));
 
 // App routes
 app.use("/email", require("./routes/email.routes"));
+app.use("/auth", require("./routes/auth.routes"));
 
 // Start server
 app.listen(process.env.PORT, () => {

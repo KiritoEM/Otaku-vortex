@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     maxlength: 20,
-    minlength: 10,
+    minlength: 3,
     trim: true,
     default: "User",
   },
@@ -17,6 +17,11 @@ const userSchema = new mongoose.Schema({
     trim: true,
     match: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, //regex generate
     unique: true,
+  },
+
+  password:{
+    type: String,
+    required: true,
   },
 
   dateCreation: {
