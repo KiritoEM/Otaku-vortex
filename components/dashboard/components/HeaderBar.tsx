@@ -21,7 +21,7 @@ const HeaderBar = (): JSX.Element => {
           </div>
           <div className="user">
             <div className="profile">
-              <img src="/banner.png" alt="" />
+              <img src="/one-piece.jpg" alt="" />
               <p>Loick</p>
             </div>
             <div className="icon-sort">

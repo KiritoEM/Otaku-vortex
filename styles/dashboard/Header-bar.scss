@@ -56,22 +56,23 @@
             flex-direction: row;
             height: 100%;
             align-items: center;
-            height: 2.45rem;
+            height: 2.5rem;
             overflow: hidden;
-            gap: 15px;
-
+            
             .profile {
                 display: flex;
                 flex-direction: row;
                 height: 100%;
                 align-items: center;
+                padding-left: 25px;
+                padding-right: 25px;
 
                 img {
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
                     position: relative;
-                    left: -11px;
+                    left: -10px;
                 }
 
                 p{

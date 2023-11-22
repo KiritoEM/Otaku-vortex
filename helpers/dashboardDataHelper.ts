@@ -5,6 +5,7 @@ import {
   faHome,
   faNewspaper,
   faSearch,
+  faTelevision,
 } from "@fortawesome/free-solid-svg-icons";
 
 interface IdashboardNav {
@@ -27,6 +28,10 @@ interface InavItems {
 /*
     interface of navButtons from InavLandingData
   */
+ interface IdashboardHome{
+   img_src: string;
+   biblioIcon: IconProp
+ }
 
 export default function dashboardDataHelper() {
   const dashboardNav: IdashboardNav = {
@@ -42,7 +47,13 @@ export default function dashboardDataHelper() {
     lottie_src:`https://lottie.host/3be45a85-3401-47f4-9c4b-d73bbac14517/SRDaAssHCk.json`,
   };
 
+  const dashboardHomeData: IdashboardHome= {
+    img_src:"/one-piece.jpg",
+    biblioIcon : faTelevision
+  }
+
   return {
     dashboardNav,
+    dashboardHomeData
   };
 }
