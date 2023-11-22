@@ -3,7 +3,6 @@ import AuthDataHelper from "@/helpers/AuthDataHelper";
 import React from "react";
 
 const LoginForm = (): JSX.Element => {
-  console.log(LoginForm);
   const { navLandingData } = arrayLandingHelpers();
   const {loginData} = AuthDataHelper()
   return (

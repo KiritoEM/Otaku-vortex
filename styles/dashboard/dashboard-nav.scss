@@ -1,0 +1,105 @@
+.dashboard-nav {
+    width: 21%;
+    height: 100vh;
+    background-color: $black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        white-space: nowrap;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 41px;
+        }
+
+        h4 {
+            color: #fff;
+            margin: auto;
+            font-size: 19.4px;
+            font-weight: bold;
+            font-family: $paypen-font;
+
+            span {
+                font-family: $paypen-font;
+                color: $color-primary;
+            }
+        }
+    }
+
+    .menu-items {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+
+            li{
+                margin-top: 13px;
+            }
+
+            a {
+                text-decoration: none;
+                font-size: 18px;
+                color: #fff;
+                font-weight: bold;
+                text-align: start;
+
+                .icon{
+                    position: relative;
+                    left: -24px;
+                }
+
+                &:hover {
+                    color: #561866;
+                }
+            }
+
+            .active {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .nav-footer{
+        background-color: rgb(51, 49, 49);
+        border-radius: 12px;
+        width: 100%;
+        padding: 17px;
+
+         .subtitle{
+
+            h5{
+                color: #fff;
+                font-size: 18px;
+
+                span{
+                    font-weight: bold;
+                }
+            }
+         }
+
+         .unlock-icon{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+             .img{
+                width: 62%;
+             }
+         }
+    }
+}

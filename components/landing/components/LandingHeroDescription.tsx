@@ -1,8 +1,10 @@
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRouter } from "next/router";
 
 const LandingHeroDescription = (): JSX.Element => {
     const {landingHeroData} = arrayLandingHelpers();
+    const router = useRouter()
   return (
     <div className="col-md-7 col-lg-6">
       <div className="section-description">
@@ -19,7 +21,9 @@ const LandingHeroDescription = (): JSX.Element => {
           </p>
         </div>
         <div className="button mt-3 mt-md-4">
-          <button className="btn">
+          <button className="btn" onClick={() =>{
+            router.push('/signup')
+          }}>
             Rejoindre la communauté
             <FontAwesomeIcon
               icon={landingHeroData.buttonIcon}

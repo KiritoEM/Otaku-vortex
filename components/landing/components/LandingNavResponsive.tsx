@@ -34,7 +34,13 @@ const LandingNavResponsive = (): JSX.Element => {
           <li>
             <div className="button">
               {navLandingData.navButton.map((items, index) => (
-                <button className="btn" key={index}>
+                <button
+                  className="btn"
+                  key={index}
+                  onClick={() => {
+                    router.push(`${items.href}`);
+                  }}
+                >
                   {items.label}
                 </button>
               ))}

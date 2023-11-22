@@ -1,6 +1,7 @@
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 interface Iprops {
   handleSubmit: (e: any) => void;
@@ -8,6 +9,7 @@ interface Iprops {
 
 const LandingFooterMail: React.FC<Iprops> = ({ handleSubmit }): JSX.Element => {
   const { LandingFooterData } = arrayLandingHelpers();
+  const [sent, setSend] = useState(false);
   return (
     <div className="col-md-6 col-lg-5">
       <div className="section-mail">
@@ -37,10 +39,16 @@ const LandingFooterMail: React.FC<Iprops> = ({ handleSubmit }): JSX.Element => {
                 placeholder={`${LandingFooterData.mail.textInputPlaceHolder}`}
               />
             </div>
-            <div className="button mt-4">
-              <button type="submit" className="btn">
-                {LandingFooterData.mail.ButtonValue}
-              </button>
+            <div className="button mt-4" onClick={()=>{setSend(true)}}>
+              {sent ? (
+                <button type="submit" className="btn" id="button2">
+                   Envoyé
+                </button>
+              ) : (
+                <button type="submit" className="btn" id="button1">
+                  {LandingFooterData.mail.ButtonValue}
+                </button>
+              )}
             </div>
           </form>
         </div>

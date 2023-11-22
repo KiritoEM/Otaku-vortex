@@ -161,13 +161,20 @@
                 .button {
                     margin: 0 auto;
 
+                    #button1{
+                        background-color: $color-primary;
+                    }
+
+                    #button2{
+                        background-color: #c9c6c6ee;
+                    }
+
                     button {
                         width: 90%;
                         height: 3rem;
                         color: #383636;
                         font-weight: bold;
                         border-radius: 15px;
-                        background-color: $color-primary;
                         border: 0;
 
                         @include screen(small) {
