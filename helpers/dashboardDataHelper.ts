@@ -34,7 +34,7 @@ export default function dashboardDataHelper() {
     logo_title: `Otaku-<span>Vortex</span>`,
     hamburgerButton: faBars,
     navItems: [
-      { label: "Accueil", href: "/", icon: faHome },
+      { label: "Accueil", href: "/dashboard", icon: faHome },
       { label: "Nouveautés", href: "", icon: faNewspaper },
       { label: "Liste", href: "", icon: faSearch },
       { label: "Catégories", href: "", icon: faSearch },
