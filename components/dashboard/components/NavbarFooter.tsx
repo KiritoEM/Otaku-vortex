@@ -6,20 +6,22 @@ const NavbarFooter = (): JSX.Element => {
   const { dashboardNav } = dashboardDataHelper();
   return (
     <div className="nav-footer">
-      <div className="subtitle">
-        <h5>
-          Débloquer la <span className="text-warning">version Pro</span> de
-          Otaku-vortex
-        </h5>
-      </div>
+      <div className="nav-footer__container">
+        <div className="subtitle">
+          <h5>
+            Débloquer la <span className="text-warning">version Pro</span> de
+            Otaku-vortex
+          </h5>
+        </div>
 
-      <div className="unlock-icon mt-4">
-        <DotLottiePlayer
-          autoplay={true}
-          loop={true}
-          src={`${dashboardNav.lottie_src}`}
-          className="img"
-        />
+        <div className="unlock-icon mt-4">
+          <DotLottiePlayer
+            autoplay={true}
+            loop={true}
+            src={`${dashboardNav.lottie_src}`}
+            className="img"
+          />
+        </div>
       </div>
     </div>
   );
