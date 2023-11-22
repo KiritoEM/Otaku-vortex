@@ -1,10 +1,11 @@
 import axios from "axios";
 import React from "react";
 import { useRouter } from "next/router";
-import useAPI from "@/hooks/useAPI";
+import { useAuthentification } from "@/hooks/useAuthentification";
 
 export default function AuthHelper() {
   const router = useRouter();
+  const { getToken, setLocalToken } = useAuthentification();
   // const { emailValue, setEmail } = useAPI();
 
   const postEmail = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -84,6 +85,13 @@ export default function AuthHelper() {
       });
 
       console.log(response);
+
+      if (response.status === 200) {
+        router.push("/dashboard");
+        setLocalToken(response.data.token);
+        console.log('token sent');
+        
+      }
     } catch (error) {
       console.error("Erreur lors de la vérification du code :", error);
     }

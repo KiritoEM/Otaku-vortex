@@ -22,7 +22,7 @@ const signupController = async (req, res) => {
         const user = { _id: response._id };
         const token = generateToken(user);
 
-        res.status(200).json({ message: "Inscription réussie", response });
+        res.status(200).json({ message: "Inscription réussie", token });
       } else {
         res.status(500).json({ message: "Echec de l' inscription" });
       }
