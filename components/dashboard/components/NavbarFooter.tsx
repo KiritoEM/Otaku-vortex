@@ -17,7 +17,7 @@ const NavbarFooter = (): JSX.Element => {
         <DotLottiePlayer
           autoplay={true}
           loop={true}
-          src={`${dashboardNav.lottie_src}`}
+          src={dashboardNav.lottie_src}
           className="img"
         />
       </div>
