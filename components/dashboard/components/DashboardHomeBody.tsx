@@ -1,4 +1,4 @@
-import SuggestionCard from "./SuggestionCard";
+import ArticleCard from "./ArticleCard";
 
 interface Iprops {
   image: string;
@@ -13,6 +13,7 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
             <div className="section-hero__title">
               <h1>ONE PIECE </h1>
               <h5 className="mt-3">Episode 1073 , 1074</h5>
+              <h5>Date de sortie : Juillet 2023</h5>
               <div className="lang">
                 <div className="vostfr">
                   <p>VOSTFR</p>
@@ -34,11 +35,11 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
 
       <section className="section-suggestion mt-5">
         <div className="section-suggestion__title">
-          <h5>Notre suggestion</h5>
+          <h5>Le plus populaire</h5>
         </div>
 
         <div className="section-suggestion__content mt-4">
-          <SuggestionCard />
+          <ArticleCard />
         </div>
       </section>
     </section>
