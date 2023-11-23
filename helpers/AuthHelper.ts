@@ -25,6 +25,7 @@ export default function AuthHelper() {
 
       if (response.status === 200) {
         router.push(`/signup/${email}`);
+        alert("email envoyé");
       } else {
         alert("Impossible d' envoyer l' email");
       }
@@ -84,6 +85,7 @@ export default function AuthHelper() {
 
       if (response.status === 200) {
         router.push("/dashboard");
+        alert("Bienvenue " + username);
         setLocalToken(response.data.token);
         console.log("token sent");
       }
@@ -113,6 +115,11 @@ export default function AuthHelper() {
         router.push("/dashboard");
         setLocalToken(response.data.token);
         console.log("token sent");
+        alert("Nous sommes ravi de vous revoir");
+      }
+
+      else{
+        alert("Veuillez reverifier votre email ou mot de passe");
       }
     } catch (error) {
       console.error("Erreur lors de la vérification du code :", error);

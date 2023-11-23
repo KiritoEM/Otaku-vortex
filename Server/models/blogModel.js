@@ -2,13 +2,14 @@ const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
   type_anime: {
-    type: Array,
-    default: [],
+    type: String,
+    default: "",
     required: true,
   },
   genre: {
-    type: Array,
-    default: [],
+    type: String,
+    default: "",
+    required: true
   },
   cover: {
     type: String,

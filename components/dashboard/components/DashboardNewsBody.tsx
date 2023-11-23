@@ -7,11 +7,11 @@ interface IBlogItem {
   cover: string;
   date: string;
   episodes: number;
-  genre: string[];
+  genre: string;
   title: string;
   Synopsis: string;
   typeAffichage: string[];
-  type_anime: string[];
+  type_anime: string
   _id: string;
 }
 

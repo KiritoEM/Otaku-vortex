@@ -12,10 +12,10 @@ interface Ipropos {
   cover: string;
   date: string;
   episodes: number;
-  genre: string[];
+  genre: string;
   title: string;
   typeAffichage: string[];
-  type_anime: string[];
+  type_anime: string;
   _id: string;
 }
 
@@ -68,7 +68,7 @@ const ArticleCard: React.FC<Ipropos> = ({
 
             <div className="content__genre">
               <h6>
-                <span>Type</span> : {type_anime.join(", ")}
+                <span>Type</span> : {type_anime}
               </h6>
             </div>
 
