@@ -44,7 +44,7 @@ const DashboardListBody = (): JSX.Element => {
   }, [getRecentsBlogs]);
 
   const cover = {
-    title: "Liste des animés",
+    title: "Liste des animés de A à Z",
     cover: "/list-cover.png",
   };
 
