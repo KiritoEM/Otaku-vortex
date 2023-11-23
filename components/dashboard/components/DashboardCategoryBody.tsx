@@ -21,7 +21,6 @@ let filteredBlogs: IBlogItem[];
 
 const DashboardCategoryBody = (): JSX.Element => {
   const { dashboardCategoryData } = dashboardDataHelper();
-
   const [active, setActive] = useState<string>("Tous");
   const [clicked, setClicked] = useState<boolean>(false);
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
@@ -32,7 +31,10 @@ const DashboardCategoryBody = (): JSX.Element => {
   const getRecentsBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
-      setBlogs(res.blog);
+      let sortedBlogs = res.blog.sort((a: any, b: any) =>
+        a.title.localeCompare(b.title)
+      );
+      setBlogs(sortedBlogs);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
     }
@@ -44,8 +46,11 @@ const DashboardCategoryBody = (): JSX.Element => {
 
   //filter blog with category
   if (active) {
+    const lowerCaseActive = active.toLowerCase();
     filteredBlogs = active
-      ? blogs.filter((blogItem) => blogItem.genre.includes(`${active}`))
+      ? blogs.filter((blogItem) =>
+          blogItem.genre.toLowerCase().includes(lowerCaseActive)
+        )
       : blogs;
   }
 
@@ -60,7 +65,6 @@ const DashboardCategoryBody = (): JSX.Element => {
     setActive(value);
     setClicked(value !== "Tous");
   };
-  
 
   return (
     <section className="dashboard-category-content">
@@ -81,7 +85,7 @@ const DashboardCategoryBody = (): JSX.Element => {
       {/* =============Section card content============ */}
       <div className="section-content mt-2">
         <div className="row gx-4 gy-4">
-          {clicked===true
+          {clicked === true
             ? filteredBlogs.map((blogItem) => (
                 <CardWithoutSwiper key={blogItem._id} {...blogItem} />
               ))
