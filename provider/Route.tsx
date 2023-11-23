@@ -14,10 +14,14 @@ const Route: React.FC<IChildren> = ({ children }): JSX.Element => {
   }
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
     if (!token) {
       router.push("/");
     } else {
-      router.push("/dashboard");
+      if (token && router.pathname === "/") {
+        router.push("/dashboard");
+      }
     }
   }, []);
 
