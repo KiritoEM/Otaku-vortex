@@ -41,7 +41,7 @@ export default function dashboardDataHelper() {
     navItems: [
       { label: "Accueil", href: "/dashboard", icon: faHome },
       { label: "Nouveautés", href: "/dashboard/nouveautes", icon: faNewspaper },
-      { label: "Liste", href: "", icon: faSearch },
+      { label: "Liste", href: "/dashboard/liste", icon: faSearch },
       { label: "Catégories", href: "", icon: faSearch },
     ],
     lottie_src:`https://lottie.host/3be45a85-3401-47f4-9c4b-d73bbac14517/SRDaAssHCk.json`,

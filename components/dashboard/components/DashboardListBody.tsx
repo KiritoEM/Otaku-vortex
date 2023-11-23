@@ -15,7 +15,8 @@ interface IBlogItem {
   _id: string;
 }
 
-const DashboardNewsBody = (): JSX.Element => {
+
+const DashboardListBody = (): JSX.Element => {
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
   if (blogs) {
     console.log("blogs", blogs);
@@ -26,10 +27,7 @@ const DashboardNewsBody = (): JSX.Element => {
   const getRecentsBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
-      let recentBlogs = res.blog.filter((blogItem: IBlogItem) =>
-        blogItem.typeAffichage.includes("recent")
-      );
-      setBlogs(recentBlogs);
+      setBlogs(res.blog);
       console.log("blog obtenu: ", res.blog);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
@@ -41,13 +39,14 @@ const DashboardNewsBody = (): JSX.Element => {
   }, [getRecentsBlogs]);
 
   const cover = {
-    title: "Animés Récents",
+    title: "Liste des animés",
     cover: "/news-cover.png",
   };
 
   return (
-    <section className="dashboard-news-content">
+    <section className="dashboard-list-content">
       <SectionCoverProps {...cover} />
+
       <div className="section-content mt-2">
         <div className="row gx-4 gy-4">
           {blogs &&
@@ -60,4 +59,4 @@ const DashboardNewsBody = (): JSX.Element => {
   );
 };
 
-export default DashboardNewsBody;
+export default DashboardListBody;
