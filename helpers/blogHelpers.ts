@@ -10,7 +10,9 @@ export default function blogHelpers() {
       return data;
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
-      throw error; 
+      throw error;
     }
   };
+
+  return { fetchBlogs };
 }

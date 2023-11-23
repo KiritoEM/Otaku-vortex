@@ -1,10 +1,45 @@
+import { useCallback, useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
+import blogHelpers from "@/helpers/blogHelpers";
 
 interface Iprops {
   image: string;
 }
 
+interface IBlogItem {
+  cover: string;
+  date: string;
+  episodes: number;
+  genre: string[];
+  title: string;
+  Synopsis: string;
+  typeAffichage: string[];
+  type_anime: string[];
+  _id: string;
+}
+
 const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
+  const [blogs, setBlogs] = useState<IBlogItem[]>([]);
+  if (blogs) {
+    console.log("blogs", blogs);
+  }
+  const { fetchBlogs } = blogHelpers();
+
+  // Fonction pour récupérer les blogs
+  const getBlogs = useCallback(async () => {
+    try {
+      const res = await fetchBlogs();
+      setBlogs(res.blog);
+      console.log("blog obtenu: ", res.blog);
+    } catch (error) {
+      console.error("Erreur lors de la récupération des blogs", error);
+    }
+  }, [setBlogs]);
+
+  useEffect(() => {
+    getBlogs();
+  }, [getBlogs]);
+
   return (
     <section className="dashboard-home-content">
       <div className="section-hero">
@@ -39,7 +74,10 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
         </div>
 
         <div className="section-suggestion__content mt-4">
-          <ArticleCard />
+          {blogs &&
+            blogs.map((blogItem) => (
+              <ArticleCard key={blogItem._id} {...blogItem} />
+            ))}
         </div>
       </section>
     </section>
