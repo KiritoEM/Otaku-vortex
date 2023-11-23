@@ -1,6 +1,8 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
+  faChevronLeft,
+  faChevronRight,
   faEnvelope,
   faHome,
   faNewspaper,
@@ -13,7 +15,7 @@ interface IdashboardNav {
   logo_title: string;
   navItems: InavItems[];
   hamburgerButton: IconProp;
-  lottie_src: string
+  lottie_src: string;
 }
 
 /*
@@ -28,10 +30,12 @@ interface InavItems {
 /*
     interface of navButtons from InavLandingData
   */
- interface IdashboardHome{
-   img_src: string;
-   biblioIcon: IconProp
- }
+interface IdashboardHome {
+  img_src: string;
+  biblioIcon: IconProp;
+  chevronRightIcon: IconProp;
+  chevronLeftIcon: IconProp;
+}
 
 export default function dashboardDataHelper() {
   const dashboardNav: IdashboardNav = {
@@ -44,16 +48,18 @@ export default function dashboardDataHelper() {
       { label: "Liste", href: "/dashboard/liste", icon: faSearch },
       { label: "Catégories", href: "", icon: faSearch },
     ],
-    lottie_src:`https://lottie.host/3be45a85-3401-47f4-9c4b-d73bbac14517/SRDaAssHCk.json`,
+    lottie_src: `https://lottie.host/3be45a85-3401-47f4-9c4b-d73bbac14517/SRDaAssHCk.json`,
   };
 
-  const dashboardHomeData: IdashboardHome= {
-    img_src:"/one-piece.jpg",
-    biblioIcon : faTelevision
-  }
+  const dashboardHomeData: IdashboardHome = {
+    img_src: "/one-piece.jpg",
+    biblioIcon: faTelevision,
+    chevronLeftIcon: faChevronLeft,
+    chevronRightIcon: faChevronRight,
+  };
 
   return {
     dashboardNav,
-    dashboardHomeData
+    dashboardHomeData,
   };
 }

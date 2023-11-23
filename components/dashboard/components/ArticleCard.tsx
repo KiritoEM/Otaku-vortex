@@ -10,7 +10,7 @@ interface Iprops {
   Synopsis: string;
   cover: string;
   date: string;
-  episodes: number;
+  episodes: string;
   genre: string;
   title: string;
   typeAffichage: string[];

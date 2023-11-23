@@ -6,7 +6,7 @@ import SectionCoverProps from "./SectionCoverProps";
 interface IBlogItem {
   cover: string;
   date: string;
-  episodes: number;
+  episodes: string;
   genre: string;
   title: string;
   Synopsis: string;

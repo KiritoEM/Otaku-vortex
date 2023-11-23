@@ -4,15 +4,16 @@ import { useCallback, useEffect, useState } from "react";
 import SectionCoverProps from "./SectionCoverProps";
 
 interface IBlogItem {
+  Synopsis: string;
   cover: string;
   date: string;
-  episodes: number;
+  episodes: string;
   genre: string;
   title: string;
-  Synopsis: string;
   typeAffichage: string[];
-  type_anime: string
+  type_anime: string;
   _id: string;
+  Status: string;
 }
 
 const DashboardNewsBody = (): JSX.Element => {
@@ -52,7 +53,7 @@ const DashboardNewsBody = (): JSX.Element => {
         <div className="row gx-4 gy-4">
           {blogs &&
             blogs.map((blogItem) => (
-              <CardWithoutSwiper key={blogItem._id} {...blogItem} />
+              <CardWithoutSwiper  key={blogItem._id} {...blogItem} />
             ))}
         </div>
       </div>

@@ -33,10 +33,9 @@ const blogSchema = new mongoose.Schema({
     default: "",
   },
   episodes: {
-    type: Number,
+    type: String,
     required: true,
-    default: 0,
-    min: 1,
+    default:"Séries"
   },
   typeAffichage:{
      type: Array,

@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import blogHelpers from "@/helpers/blogHelpers";
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSwiper } from "swiper/react";
 
 interface Iprops {
   image: string;
@@ -14,7 +14,7 @@ interface IBlogItem {
   Synopsis: string;
   cover: string;
   date: string;
-  episodes: number;
+  episodes: string;
   genre: string;
   title: string;
   typeAffichage: string[];
@@ -24,10 +24,13 @@ interface IBlogItem {
 }
 
 const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
+  //import swiper hooks
+  const swiper = useSwiper();
+
+  //hooks to stock blog
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
-  if (blogs) {
-    console.log("blogs", blogs);
-  }
+
+  //import fetchBlogsHelper
   const { fetchBlogs } = blogHelpers();
 
   // Function to fetch populate blog
@@ -85,7 +88,7 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
           <article className="swiper-container">
             <Swiper
               slidesPerView={"auto"}
-              spaceBetween={24}
+              spaceBetween={20}
               pagination={{
                 clickable: true,
               }}
@@ -98,6 +101,7 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
                     <ArticleCard {...blogItem} />
                   </SwiperSlide>
                 ))}
+          
             </Swiper>
           </article>
         </div>
