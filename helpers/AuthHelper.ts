@@ -6,8 +6,8 @@ import { useAuthentification } from "@/hooks/useAuthentification";
 export default function AuthHelper() {
   const router = useRouter();
   const { getToken, setLocalToken } = useAuthentification();
-  // const { emailValue, setEmail } = useAPI();
 
+  //Post mail to node
   const postEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -23,8 +23,6 @@ export default function AuthHelper() {
         }
       );
 
-      console.log(response);
-
       if (response.status === 200) {
         router.push(`/signup/${email}`);
       } else {
@@ -35,6 +33,7 @@ export default function AuthHelper() {
     }
   };
 
+  //post code to node
   const postCode = async (
     e: React.FormEvent<HTMLFormElement>,
     userEmail: string
@@ -53,8 +52,6 @@ export default function AuthHelper() {
         }
       );
 
-      console.log(response);
-
       if (response.status === 200) {
         router.push(`/signup/signup-final/${userEmail}`);
       } else {
@@ -65,6 +62,7 @@ export default function AuthHelper() {
     }
   };
 
+  //signup helper function
   const postSignup = async (
     e: React.FormEvent<HTMLFormElement>,
     userEmail: string
@@ -74,8 +72,6 @@ export default function AuthHelper() {
     const form = e.currentTarget;
     const username = form["username"].value;
     const password = form["password"].value;
-    console.log("nom d' utilisateur: ", username);
-    console.log("mot de passe: ", password);
 
     try {
       const response = await axios.post("http://localhost:8000/auth/signup", {
@@ -89,8 +85,34 @@ export default function AuthHelper() {
       if (response.status === 200) {
         router.push("/dashboard");
         setLocalToken(response.data.token);
-        console.log('token sent');
-        
+        console.log("token sent");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la vérification du code :", error);
+    }
+  };
+
+  const postLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const email = form["email"].value;
+    const password = form["password"].value;
+    console.log("mot de passe: ", password);
+    console.log("adresse email: ", email);
+
+    try {
+      const response = await axios.post("http://localhost:8000/auth/login", {
+        email: email,
+        password: password,
+      });
+
+      console.log(response);
+
+      if (response.status === 200) {
+        router.push("/dashboard");
+        setLocalToken(response.data.token);
+        console.log("token sent");
       }
     } catch (error) {
       console.error("Erreur lors de la vérification du code :", error);

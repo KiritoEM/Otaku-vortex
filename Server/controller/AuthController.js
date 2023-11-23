@@ -43,6 +43,7 @@ const loginController = async (req, res) => {
   const { email, password } = req.body;
 
   const response = await loginHelper(email, password);
+  console.log(response);
 
   if (response) {
     const user = { _id: response._id };
@@ -54,4 +55,4 @@ const loginController = async (req, res) => {
   }
 };
 
-module.exports = { signupController };
+module.exports = { signupController , loginController};
