@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import blogHelpers from "@/helpers/blogHelpers";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface Iprops {
   image: string;
@@ -16,7 +20,7 @@ interface IBlogItem {
   typeAffichage: string[];
   type_anime: string;
   _id: string;
-  Status: string
+  Status: string;
 }
 
 const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
@@ -78,10 +82,24 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
         </div>
 
         <div className="section-suggestion__content mt-4">
-          {blogs &&
-            blogs.map((blogItem) => (
-              <ArticleCard key={blogItem._id} {...blogItem} />
-            ))}
+          <article className="swiper-container">
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={24}
+              pagination={{
+                clickable: true,
+              }}
+              autoplay
+              className="mySwiper"
+            >
+              {blogs &&
+                blogs.map((blogItem) => (
+                  <SwiperSlide key={blogItem._id}>
+                    <ArticleCard {...blogItem} />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          </article>
         </div>
       </section>
     </section>

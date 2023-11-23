@@ -40,7 +40,7 @@ export default function dashboardDataHelper() {
     hamburgerButton: faBars,
     navItems: [
       { label: "Accueil", href: "/dashboard", icon: faHome },
-      { label: "Nouveautés", href: "/dashboard/nouveautes", icon: faNewspaper },
+      { label: "Récents", href: "/dashboard/nouveautes", icon: faNewspaper },
       { label: "Liste", href: "/dashboard/liste", icon: faSearch },
       { label: "Catégories", href: "", icon: faSearch },
     ],
