@@ -13,6 +13,7 @@ interface IBlogItem {
   typeAffichage: string[];
   type_anime: string;
   _id: string;
+  Status: string
 }
 
 const DashboardListBody = (): JSX.Element => {

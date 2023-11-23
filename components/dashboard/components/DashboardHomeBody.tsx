@@ -7,15 +7,16 @@ interface Iprops {
 }
 
 interface IBlogItem {
+  Synopsis: string;
   cover: string;
   date: string;
   episodes: number;
-  genre: string[];
+  genre: string;
   title: string;
-  Synopsis: string;
   typeAffichage: string[];
-  type_anime: string[];
+  type_anime: string;
   _id: string;
+  Status: string
 }
 
 const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {

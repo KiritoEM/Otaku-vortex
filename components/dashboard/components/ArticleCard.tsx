@@ -7,7 +7,7 @@ import { Pagination } from "swiper/modules";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface Ipropos {
+interface Iprops {
   Synopsis: string;
   cover: string;
   date: string;
@@ -17,9 +17,10 @@ interface Ipropos {
   typeAffichage: string[];
   type_anime: string;
   _id: string;
+  Status: string;
 }
 
-const ArticleCard: React.FC<Ipropos> = ({
+const ArticleCard: React.FC<Iprops> = ({
   Synopsis,
   cover,
   date,
@@ -28,9 +29,9 @@ const ArticleCard: React.FC<Ipropos> = ({
   title,
   typeAffichage,
   type_anime,
+  Status,
 }) => {
   const { dashboardHomeData } = dashboardDataHelper();
-
 
   return (
     <article className="swiper-container">
@@ -45,7 +46,7 @@ const ArticleCard: React.FC<Ipropos> = ({
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="cover" style={{backgroundImage:`url("${cover}")`}}>
+          <div className="cover" style={{ backgroundImage: `url("${cover}")` }}>
             <div className="date">
               <p>Date de sortie : {date}</p>
             </div>
@@ -68,7 +69,13 @@ const ArticleCard: React.FC<Ipropos> = ({
 
             <div className="content__genre">
               <h6>
-                <span>Type</span> : {type_anime}
+                <span>Type</span> : {genre}
+              </h6>
+            </div>
+
+            <div className="content__genre">
+              <h6>
+                <span>Statut</span> : ANIME {Status}
               </h6>
             </div>
 

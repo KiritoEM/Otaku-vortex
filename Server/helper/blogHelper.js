@@ -8,7 +8,8 @@ const postBlogHelper = (
   synopsis,
   date,
   episodes,
-  affichage
+  affichage,
+  status
 ) => {
   const newBlog = new blogModel({
     type_anime: type,
@@ -19,6 +20,7 @@ const postBlogHelper = (
     date: date,
     episodes: episodes,
     typeAffichage: affichage,
+    Status:status
   });
 
   return newBlog.save();

@@ -13,6 +13,7 @@ interface Iprops {
   typeAffichage: string[];
   type_anime: string;
   _id: string;
+  Status: string;
 }
 
 const CardWithoutSwiper: React.FC<Iprops> = ({
@@ -24,6 +25,7 @@ const CardWithoutSwiper: React.FC<Iprops> = ({
   title,
   typeAffichage,
   type_anime,
+  Status,
 }): JSX.Element => {
   const { dashboardHomeData } = dashboardDataHelper();
   return (
@@ -55,7 +57,13 @@ const CardWithoutSwiper: React.FC<Iprops> = ({
 
           <div className="content__genre">
             <h6>
-              <span>Type</span> : {type_anime}
+              <span>Type</span> : {genre}
+            </h6>
+          </div>
+
+          <div className="content__genre">
+            <h6>
+              <span>Statut</span> : {Status}
             </h6>
           </div>
 

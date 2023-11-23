@@ -10,6 +10,7 @@ const postBlogController = async (req, res) => {
     date,
     episodes,
     type_affichage,
+    status
   } = req.body;
   console.log(req.body);
 
@@ -21,7 +22,8 @@ const postBlogController = async (req, res) => {
     synopsis,
     date,
     episodes,
-    type_affichage
+    type_affichage,
+    status
   );
 
   if (response) {

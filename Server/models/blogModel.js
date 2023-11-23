@@ -4,7 +4,6 @@ const blogSchema = new mongoose.Schema({
   type_anime: {
     type: String,
     default: "",
-    required: true,
   },
   genre: {
     type: String,
@@ -42,6 +41,11 @@ const blogSchema = new mongoose.Schema({
   typeAffichage:{
      type: Array,
      require: true,
+  }
+  ,
+  Status:{
+    type: String,
+    required: true
   }
 });
 
