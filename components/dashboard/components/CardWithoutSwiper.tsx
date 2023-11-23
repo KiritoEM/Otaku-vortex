@@ -29,7 +29,10 @@ const CardWithoutSwiper: React.FC<Iprops> = ({
   return (
     <div className="col-4">
       <article className="box">
-        <div className="box__cover">
+        <div
+          className="box__cover"
+          style={{ backgroundImage: `url("${cover}")` }}
+        >
           <div className="date">
             <p>Date de sortie : {date}</p>
           </div>

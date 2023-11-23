@@ -15,7 +15,6 @@ interface IBlogItem {
   _id: string;
 }
 
-
 const DashboardListBody = (): JSX.Element => {
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
   if (blogs) {
@@ -27,7 +26,12 @@ const DashboardListBody = (): JSX.Element => {
   const getRecentsBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
-      setBlogs(res.blog);
+
+      //sort blog with A-Z
+      const sortedBlogs = res.blog.sort((a: any, b: any) =>
+        a.title.localeCompare(b.title)
+      );
+      setBlogs(sortedBlogs);
       console.log("blog obtenu: ", res.blog);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
@@ -40,7 +44,7 @@ const DashboardListBody = (): JSX.Element => {
 
   const cover = {
     title: "Liste des animés",
-    cover: "/news-cover.png",
+    cover: "/list-cover.png",
   };
 
   return (
