@@ -1,9 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { postBlogController } = require("./../controller/blogController");
+const {
+  postBlogController,
+  getBlogController,
+} = require("./../controller/blogController");
 
-//route signup
+//route post Blog
 router.post("/post", postBlogController);
+
+//route get Blog
+router.get("/get", getBlogController);
 
 //route login
 

@@ -1,6 +1,15 @@
 const blogModel = require("../models/blogModel");
 
-const postBlogHelper = (type, genre, cover, title, synopsis, date, episodes, affichage) => {
+const postBlogHelper = (
+  type,
+  genre,
+  cover,
+  title,
+  synopsis,
+  date,
+  episodes,
+  affichage
+) => {
   const newBlog = new blogModel({
     type_anime: type,
     genre: genre,
@@ -9,10 +18,16 @@ const postBlogHelper = (type, genre, cover, title, synopsis, date, episodes, aff
     Synopsis: synopsis,
     date: date,
     episodes: episodes,
-    typeAffichage:affichage,
+    typeAffichage: affichage,
   });
 
   return newBlog.save();
 };
 
-module.exports = { postBlogHelper };
+const getBlogHelper = () => {
+  const blog = blogModel.find();
+
+  return blog;
+};
+
+module.exports = { postBlogHelper , getBlogHelper };
