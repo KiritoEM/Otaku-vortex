@@ -25,11 +25,14 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
   }
   const { fetchBlogs } = blogHelpers();
 
-  // Fonction pour récupérer les blogs
-  const getBlogs = useCallback(async () => {
+  // Function to fetch populate blog
+  const getPopularBlogs = useCallback(async () => {
     try {
-      const res = await fetchBlogs();
-      setBlogs(res.blog);
+      let res = await fetchBlogs();
+      let popularBlogs = res.blog.filter((blogItem: IBlogItem) =>
+        blogItem.typeAffichage.includes("populaire")
+      );
+      setBlogs(popularBlogs);
       console.log("blog obtenu: ", res.blog);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
@@ -37,8 +40,8 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
   }, [setBlogs]);
 
   useEffect(() => {
-    getBlogs();
-  }, [getBlogs]);
+    getPopularBlogs();
+  }, [getPopularBlogs]);
 
   return (
     <section className="dashboard-home-content">

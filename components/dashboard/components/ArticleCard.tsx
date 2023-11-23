@@ -31,6 +31,7 @@ const ArticleCard: React.FC<Ipropos> = ({
 }) => {
   const { dashboardHomeData } = dashboardDataHelper();
 
+
   return (
     <article className="swiper-container">
       <Swiper
@@ -67,7 +68,7 @@ const ArticleCard: React.FC<Ipropos> = ({
 
             <div className="content__genre">
               <h6>
-                <span>Genre</span> : {genre.join(", ")}
+                <span>Type</span> : {type_anime.join(", ")}
               </h6>
             </div>
 

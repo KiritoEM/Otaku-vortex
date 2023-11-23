@@ -1,39 +1,64 @@
 import { faTelevision } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import dashboardDataHelper from "@/helpers/dashboardDataHelper";
 
-const CardWithoutSwiper = (): JSX.Element => {
+interface Iprops {
+  Synopsis: string;
+  cover: string;
+  date: string;
+  episodes: number;
+  genre: string[];
+  title: string;
+  typeAffichage: string[];
+  type_anime: string[];
+  _id: string;
+}
+
+const CardWithoutSwiper: React.FC<Iprops> = ({
+  Synopsis,
+  cover,
+  date,
+  episodes,
+  genre,
+  title,
+  typeAffichage,
+  type_anime,
+}): JSX.Element => {
+  const { dashboardHomeData } = dashboardDataHelper();
   return (
     <div className="col-4">
       <article className="box">
         <div className="box__cover">
           <div className="date">
-            <p> sortie: Novembre 2023</p>
+            <p>Date de sortie : {date}</p>
           </div>
         </div>
+
         <div className="content">
           <div className="content__title">
-            <h5>One piece</h5>
+            <h5>{title}</h5>
           </div>
 
           <div className="content__episodes">
             <h6>
-              <FontAwesomeIcon icon={faTelevision} className="mx-2" /> 35
-              episodes
+              <FontAwesomeIcon
+                icon={dashboardHomeData.biblioIcon}
+                className="mx-2"
+              />{" "}
+              {episodes} episodes
             </h6>
           </div>
 
           <div className="content__genre">
             <h6>
-              <span>Genre</span> : Shonen , Shogo
+              <span>Type</span> : {type_anime}
             </h6>
           </div>
 
           <div className="content__desc">
             <p>
-              <span>Synopsis</span> : Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Id, dolores sunt consequatur omnis harum
-              inventore non odio doloribus nihil earum facilis quos provident?
-              Magnam quidem
+              <span>Synopsis</span> : {Synopsis}
             </p>
           </div>
         </div>
