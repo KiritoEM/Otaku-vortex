@@ -1,6 +1,7 @@
 const userModel = require("../models/userModels");
 const bcrypt = require("bcrypt");
 
+//signup function helper
 const signupHelper = (username, email, password) => {
   const newUser = new userModel({
     username: username,
@@ -11,6 +12,7 @@ const signupHelper = (username, email, password) => {
   return newUser.save();
 };
 
+//hash password
 const hashPassword = async (password) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -22,6 +24,7 @@ const hashPassword = async (password) => {
   }
 };
 
+//check if mail already exist
 const checkEmail = async (email) => {
   try {
     const user = await userModel.findOne({ email: email });
@@ -36,5 +39,20 @@ const checkEmail = async (email) => {
   }
 };
 
+//login helper function
+const loginHelper = async (email, password) => {
+  try {
+    const user = await userModel.findOne({ email: email });
+    const passwordMatch = await bcrypt.compare(password, user.password);
 
-module.exports = { signupHelper, hashPassword, checkEmail };
+    if (user && passwordMatch) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+module.exports = { signupHelper, hashPassword, checkEmail, loginHelper };

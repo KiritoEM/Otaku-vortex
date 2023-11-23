@@ -40,4 +40,5 @@ const blogSchema = new mongoose.Schema({
   },
 });
 
+//export blog model
 module.exports = mongoose.model("blog", blogSchema);

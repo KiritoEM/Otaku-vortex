@@ -4,7 +4,9 @@ const {
   checkEmail,
 } = require("../helper/AuthHelper");
 const { generateToken } = require("./../helper/TokenHelper");
+const { loginHelper } = require("./../helper/AuthHelper");
 
+//signup controller function
 const signupController = async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -33,6 +35,22 @@ const signupController = async (req, res) => {
     }
   } catch (err) {
     console.log("erreur: ", err);
+  }
+};
+
+//login controller function
+const loginController = async (req, res) => {
+  const { email, password } = req.body;
+
+  const response = await loginHelper(email, password);
+
+  if (response) {
+    const user = { _id: response._id };
+    const token = generateToken(user);
+
+    res.status(200).json({ message: "Utilisateur validé ", token });
+  } else {
+    res.status(500).json({ message: "Des informations non valides" });
   }
 };
 
