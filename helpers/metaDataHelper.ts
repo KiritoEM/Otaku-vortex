@@ -6,7 +6,8 @@ interface ImetaData {
     codeVerification: string;
     signupFinal: string;
     dashboardHome: string;
-    dashboardNews: string
+    dashboardNews: string;
+    dashboardCategory: string;
   };
 }
 
@@ -19,7 +20,8 @@ export default function metaDataHelper() {
       codeVerification: "Entrez le code à 6 chiffres",
       signupFinal: "Finaliser votre inscripiton",
       dashboardHome: "Otaku-vortex - Accueil",
-      dashboardNews: "Otaku-vortex - Nouveautés"
+      dashboardNews: "Otaku-vortex - Nouveautés",
+      dashboardCategory:"Otaku-vortex - Catégories"
     },
   };
 

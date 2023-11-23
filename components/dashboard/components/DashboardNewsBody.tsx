@@ -18,9 +18,7 @@ interface IBlogItem {
 
 const DashboardNewsBody = (): JSX.Element => {
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
-  if (blogs) {
-    console.log("blogs", blogs);
-  }
+  
   const { fetchBlogs } = blogHelpers();
 
   // Function to fetch recents blog

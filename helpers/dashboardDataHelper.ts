@@ -37,6 +37,13 @@ interface IdashboardHome {
   chevronLeftIcon: IconProp;
 }
 
+/*
+    interface of dashboardCategory
+  */
+    interface IdashboardCategory {
+      button_value: string
+    }
+    
 export default function dashboardDataHelper() {
   const dashboardNav: IdashboardNav = {
     logo: "/logo.webp",
@@ -46,7 +53,7 @@ export default function dashboardDataHelper() {
       { label: "Accueil", href: "/dashboard", icon: faHome },
       { label: "Récents", href: "/dashboard/nouveautes", icon: faNewspaper },
       { label: "Liste", href: "/dashboard/liste", icon: faSearch },
-      { label: "Catégories", href: "", icon: faSearch },
+      { label: "Catégories", href: "/dashboard/categories", icon: faSearch },
     ],
     lottie_src: `https://lottie.host/3be45a85-3401-47f4-9c4b-d73bbac14517/SRDaAssHCk.json`,
   };
@@ -58,8 +65,23 @@ export default function dashboardDataHelper() {
     chevronRightIcon: faChevronRight,
   };
 
+  const dashboardCategoryData : IdashboardCategory[] =[
+     {button_value:"Tous"},
+     {button_value:"Action"},
+     {button_value:"Comédie"},
+     {button_value:"Surnaturel"},
+     {button_value:"Adventure"},
+     {button_value:"Fantasy"},
+     {button_value:"Romance"},
+     {button_value:"Mystère"},
+     {button_value:"Animation"},
+     {button_value:"Fantastique"},
+  ]
+
+
   return {
     dashboardNav,
     dashboardHomeData,
+    dashboardCategoryData
   };
 }

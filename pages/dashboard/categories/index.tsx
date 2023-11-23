@@ -1,25 +1,25 @@
 import PageHeading from "@/components/PageHeading";
 import Layout from "@/provider/Layout";
 import metaDataHelper from "@/helpers/metaDataHelper";
-import DashboardListBody from "@/components/dashboard/components/DashboardListBody";
 import HeaderBar from "@/components/dashboard/components/HeaderBar";
+import DashboardCategoryBody from "@/components/dashboard/components/DashboardCategoryBody";
 
-const liste = (): JSX.Element => {
+const nouveautes = (): JSX.Element => {
   const { metaData } = metaDataHelper();
   return (
     <Layout>
-      <PageHeading title={metaData.metaTitle.dashboardNews} />
-      <section className="dashboard-list">
-        <section className="dashboard-list__body">
+      <PageHeading title={metaData.metaTitle.dashboardCategory} />
+      <section className="dashboard-category">
+        <div className="dashboard-category__body">
           {/* =============Header with search-bar============ */}
           <HeaderBar />
 
           {/* =============Body============ */}
-          <DashboardListBody />
-        </section>
+          <DashboardCategoryBody />
+        </div>
       </section>
     </Layout>
   );
 };
 
-export default liste;
+export default nouveautes;

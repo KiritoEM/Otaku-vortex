@@ -36,7 +36,7 @@ const ArticleCard: React.FC<Iprops> = ({
     <Fragment>
       <div className="cover" style={{ backgroundImage: `url("${cover}")` }}>
         <div className="date">
-          <p>Date de sortie : {date}</p>
+          <p>Sortie : {date}</p>
         </div>
       </div>
 
@@ -57,7 +57,7 @@ const ArticleCard: React.FC<Iprops> = ({
 
         <div className="content__genre">
           <h6>
-            <span>Type</span> : {genre}
+            <span>Genre</span> : {genre}
           </h6>
         </div>
 
