@@ -15,7 +15,7 @@ const blogSchema = new mongoose.Schema({
     required: true,
     default: "",
   },
-  titre: {
+  title: {
     type: String,
     required: true,
     default: "Titre",
@@ -27,18 +27,23 @@ const blogSchema = new mongoose.Schema({
       validator: (v) => v.length > 10,
       message: "La valeur doit avoir plus de 10 caractères.",
     },
-    date: {
-      type: String,
-      default: "",
-    },
-    episodes: {
-      type: Number,
-      required: true,
-      default: 0,
-      min: 1,
-    },
   },
+  date: {
+    type: String,
+    default: "",
+  },
+  episodes: {
+    type: Number,
+    required: true,
+    default: 0,
+    min: 1,
+  },
+  typeAffichage:{
+     type: Array,
+     require: true,
+  }
 });
 
 //export blog model
-module.exports = mongoose.model("blog", blogSchema);
+const blogModel = mongoose.model("blog", blogSchema);
+module.exports = blogModel;

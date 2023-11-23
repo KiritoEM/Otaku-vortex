@@ -1,10 +1,12 @@
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
 import AuthDataHelper from "@/helpers/AuthDataHelper";
 import React from "react";
+import AuthHelper from "@/helpers/AuthHelper";
 
 const LoginForm = (): JSX.Element => {
   const { navLandingData } = arrayLandingHelpers();
-  const {loginData} = AuthDataHelper()
+  const { loginData } = AuthDataHelper();
+  const { postLogin } = AuthHelper();
   return (
     <div className="col-lg-6">
       <div className="section-form">
@@ -22,7 +24,12 @@ const LoginForm = (): JSX.Element => {
           </div>
 
           <div className="formulaire">
-            <form action="post">
+            <form
+              action="post"
+              onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+                postLogin(e);
+              }}
+            >
               <div className="form-group">
                 <input
                   type="email"
@@ -30,15 +37,15 @@ const LoginForm = (): JSX.Element => {
                   name="email"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                   placeholder={`${loginData.emailPlaceholder}`}
+                  placeholder={`${loginData.emailPlaceholder}`}
                 />
               </div>
               <div className="form-group mt-4">
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   id="exampleInputPassword1"
-                  name="emailValue"
+                  name="password"
                   placeholder={`${loginData.PasswordPlaceholder}`}
                 />
               </div>
@@ -51,10 +58,13 @@ const LoginForm = (): JSX.Element => {
           </div>
 
           <div className="authGoogle">
-              <p>OU</p>
-              <button className="btn">  <img src={loginData.google_img} className="mx-2" alt="" /> Continuer avec Google</button>
+            <p>OU</p>
+            <button className="btn">
+              {" "}
+              <img src={loginData.google_img} className="mx-2" alt="" />{" "}
+              Continuer avec Google
+            </button>
           </div>
-
         </div>
       </div>
     </div>
@@ -62,4 +72,3 @@ const LoginForm = (): JSX.Element => {
 };
 
 export default LoginForm;
-

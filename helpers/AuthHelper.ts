@@ -119,5 +119,5 @@ export default function AuthHelper() {
     }
   };
 
-  return { postEmail, postCode, postSignup };
+  return { postEmail, postCode, postSignup, postLogin };
 }
