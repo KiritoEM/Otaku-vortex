@@ -1,7 +1,9 @@
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import blogHelpers from "@/helpers/blogHelpers";
 
 const postAnime = (): JSX.Element => {
+  const { postBlog } = blogHelpers();
   return (
     <div className="post-anime">
       <div className="post-anime__container">
@@ -12,10 +14,11 @@ const postAnime = (): JSX.Element => {
           </h2>
         </div>
 
-        <div className="formulaire mt-5">
+        <div className="formulaire mt-4">
           <form
-          // onSubmit={(e: any) => {
-          // }}
+            onSubmit={(e: any) => {
+              postBlog(e);
+            }}
           >
             <div className="form-group">
               <div className="row g-4">
@@ -32,8 +35,8 @@ const postAnime = (): JSX.Element => {
                   <input
                     type="text"
                     className="form-control"
-                    name="genre"
-                    placeholder="Genre ..."
+                    name="episodes"
+                    placeholder="Episodes ..."
                   />
                 </div>
 
@@ -41,7 +44,16 @@ const postAnime = (): JSX.Element => {
                   <input
                     type="text"
                     className="form-control"
-                    name="couverture"
+                    name="date"
+                    placeholder="Date de sortie ..."
+                  />
+                </div>
+
+                <div className="col-md-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="cover"
                     aria-describedby="emailHelp"
                     placeholder="Couverture ..."
                   />
@@ -69,15 +81,24 @@ const postAnime = (): JSX.Element => {
                   <input
                     type="text"
                     className="form-control"
-                    name="type_affichage"
-                    placeholder="Status ..."
+                    name="status"
+                    placeholder="Status actuel ..."
+                  />
+                </div>
+
+                <div className="col-md-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="genre"
+                    placeholder="Genre ..."
                   />
                 </div>
 
                 <div className="col-12">
                   <textarea
                     name="synopsis"
-                    className=" mt-5 form-control"
+                    className=" mt-4 form-control"
                     placeholder="Entrez le Synopsis"
                   ></textarea>
                 </div>
