@@ -1,6 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
-import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faComment,
+  faHeart,
+  faPaperPlane,
+} from "@fortawesome/free-solid-svg-icons";
 import CommentsCard from "../childrenComponents/commentsCard";
 
 const BlogBody = (): JSX.Element => {
@@ -92,8 +96,13 @@ const BlogBody = (): JSX.Element => {
             <CommentsCard />
           </div>
 
-          <div className="postComments">
-              
+          <div className="post-comments">
+            <div className="input">
+              <textarea name="" placeholder="Entrez votre commentaire ..."></textarea>
+            </div>
+            <div className="button-send">
+              <FontAwesomeIcon icon={faPaperPlane} className="icon" />
+            </div>
           </div>
         </div>
       </div>
