@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
 import { faComment, faHeart } from "@fortawesome/free-solid-svg-icons";
+import CommentsCard from "../childrenComponents/commentsCard";
 
 const BlogBody = (): JSX.Element => {
   const { dashboardHomeData } = dashboardDataHelper();
@@ -24,7 +25,7 @@ const BlogBody = (): JSX.Element => {
                   </p>
                 </div>
               </div>
-              <div className="reactions mt-4">
+              <div className="reactions mt-3">
                 <div className="like">
                   <p>
                     <FontAwesomeIcon icon={faHeart} className="mx-2" />
@@ -83,7 +84,16 @@ const BlogBody = (): JSX.Element => {
       <div className="comments">
         <div className="comments__container">
           <div className="title">
-            <h4>Commentaires (5)</h4>
+            <h5>Commentaires (5)</h5>
+          </div>
+          <div className="comments-content">
+            <CommentsCard />
+            <CommentsCard />
+            <CommentsCard />
+          </div>
+
+          <div className="postComments">
+              
           </div>
         </div>
       </div>
