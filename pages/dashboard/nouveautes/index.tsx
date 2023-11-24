@@ -1,8 +1,8 @@
 import PageHeading from "@/components/PageHeading";
 import Layout from "@/provider/Layout";
 import metaDataHelper from "@/helpers/metaDataHelper";
-import HeaderBar from "@/components/dashboard/components/HeaderBar";
-import DashboardNewsBody from "@/components/dashboard/components/DashboardNewsBody";
+import HeaderBar from "@/components/dashboard/childrenComponents/HeaderBar";
+import DashboardNewsBody from "@/components/dashboard/news/DashboardNewsBody";
 
 const nouveautes = (): JSX.Element => {
   const { metaData } = metaDataHelper();

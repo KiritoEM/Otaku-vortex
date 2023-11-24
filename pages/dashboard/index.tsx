@@ -1,5 +1,5 @@
 import Layout from "@/provider/Layout";
-import HeaderBar from "@/components/dashboard/components/HeaderBar";
+import HeaderBar from "@/components/dashboard/childrenComponents/HeaderBar";
 import PageHeading from "@/components/PageHeading";
 import metaDataHelper from "@/helpers/metaDataHelper";
 import DashboardHomeBody from "@/components/dashboard/home/DashboardHomeBody";
