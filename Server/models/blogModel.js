@@ -8,7 +8,7 @@ const blogSchema = new mongoose.Schema({
   genre: {
     type: String,
     default: "",
-    required: true
+    required: true,
   },
   cover: {
     type: String,
@@ -22,6 +22,7 @@ const blogSchema = new mongoose.Schema({
   },
   Synopsis: {
     type: String,
+    trim: true,
     required: true,
     validate: {
       validator: (v) => v.length > 10,

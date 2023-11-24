@@ -19,24 +19,25 @@ export default function blogHelpers() {
     const form = e.currentTarget;
     let genre = form["genre"].value;
     let cover = form["cover"].value;
-    let title = form["title"].valueOf;
     let date = form["date"].value;
-    let type_affichage = form["type_affichage"].value;
+    let type_affichage = form["type_affichage"].value
+      .split(",")
+      .map((value: string) => value.trim());
     let status = form["status"].value;
     let synopsis = form["synopsis"].value;
     let episodes = form["episodes"].value;
-    console.log(e.currentTarget);
+    console.log(genre, cover, date, type_affichage, status, synopsis, episodes);
 
     try {
       const response = await axios.post("http://localhost:8000/blog/post", {
         type: "",
         genre: genre,
         cover: cover,
-        title: title,
+        title: form["titleAnime"].value,
         synopsis: synopsis,
         date: date,
         episodes: episodes,
-        type_affichage: [`${type_affichage}`],
+        type_affichage: type_affichage,
         status: status,
       });
 

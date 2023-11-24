@@ -8,6 +8,7 @@ interface ImetaData {
     dashboardHome: string;
     dashboardNews: string;
     dashboardCategory: string;
+    postAnimé: string;
   };
 }
 
@@ -21,7 +22,8 @@ export default function metaDataHelper() {
       signupFinal: "Finaliser votre inscripiton",
       dashboardHome: "Otaku-vortex - Accueil",
       dashboardNews: "Otaku-vortex - Nouveautés",
-      dashboardCategory:"Otaku-vortex - Catégories"
+      dashboardCategory:"Otaku-vortex - Catégories",
+      postAnimé:"Publier un Animé"
     },
   };
 
