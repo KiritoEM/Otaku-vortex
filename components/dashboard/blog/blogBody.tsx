@@ -88,7 +88,8 @@ const BlogBody = (): JSX.Element => {
       <div className="comments">
         <div className="comments__container">
           <div className="title">
-            <h5>Commentaires (5)</h5>
+            <h4>Commentaires (5)</h4>
+            <div className="line"></div>
           </div>
           <div className="comments-content">
             <CommentsCard />
@@ -96,14 +97,21 @@ const BlogBody = (): JSX.Element => {
             <CommentsCard />
           </div>
 
-          <div className="post-comments">
-            <div className="input">
-              <textarea name="" placeholder="Entrez votre commentaire ..."></textarea>
+          <form action="">
+            <div className="post-comments">
+              <div className="input">
+                <textarea
+                  name=""
+                  placeholder="Entrez votre commentaire ..."
+                ></textarea>
+              </div>
+              <div className="button-send">
+                <button className="btn" type="submit">
+                  <FontAwesomeIcon icon={faPaperPlane} className="icon" />
+                </button>
+              </div>
             </div>
-            <div className="button-send">
-              <FontAwesomeIcon icon={faPaperPlane} className="icon" />
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
