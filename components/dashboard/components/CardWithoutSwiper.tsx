@@ -51,7 +51,7 @@ const CardWithoutSwiper: React.FC<Iprops> = ({
                 icon={dashboardHomeData.biblioIcon}
                 className="mx-2"
               />{" "}
-              {episodes} episodes
+              {episodes}
             </h6>
           </div>
 

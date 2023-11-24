@@ -31,6 +31,8 @@ const DashboardCategoryBody = (): JSX.Element => {
   const getRecentsBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
+      
+      //sort blog to A-Z with title
       let sortedBlogs = res.blog.sort((a: any, b: any) =>
         a.title.localeCompare(b.title)
       );

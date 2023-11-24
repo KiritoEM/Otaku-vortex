@@ -70,12 +70,22 @@ export default function dashboardDataHelper() {
      {button_value:"Action"},
      {button_value:"Comédie"},
      {button_value:"Surnaturel"},
-     {button_value:"Adventure"},
+     {button_value:"Aventure"},
      {button_value:"Fantasy"},
      {button_value:"Romance"},
      {button_value:"Mystère"},
      {button_value:"Animation"},
      {button_value:"Fantastique"},
+     {button_value:"Drame"},
+     {button_value:"Historique"},
+     {button_value:"Horreur"},
+     {button_value:"Ecchi"},
+     {button_value:"tranche de vie"},
+     {button_value:"Psychologie"},
+     {button_value:"tragédie"},
+     {button_value:"Science-fiction"},
+     {button_value:"Seinen"},
+     {button_value:"Shōnen"},
   ]
 
 

@@ -37,9 +37,13 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
   const getPopularBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
+
+      //sort blog to A-Z with title
       let sortedBlogs = res.blog.sort((a: any, b: any) =>
         a.title.localeCompare(b.title)
       );
+
+      //filter popular type of affichage
       let popularBlogs = sortedBlogs.filter((blogItem: IBlogItem) =>
         blogItem.typeAffichage.includes("populaire")
       );
