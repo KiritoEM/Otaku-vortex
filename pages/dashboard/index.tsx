@@ -2,7 +2,7 @@ import Layout from "@/provider/Layout";
 import HeaderBar from "@/components/dashboard/components/HeaderBar";
 import PageHeading from "@/components/PageHeading";
 import metaDataHelper from "@/helpers/metaDataHelper";
-import DashboardHomeBody from "@/components/dashboard/components/DashboardHomeBody";
+import DashboardHomeBody from "@/components/dashboard/home/DashboardHomeBody";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
 
 const dashboardHome = (): JSX.Element => {

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "../childrenComponents/ArticleCard";
 import blogHelpers from "@/helpers/blogHelpers";
 import "swiper/css";
 import "swiper/css/scrollbar";

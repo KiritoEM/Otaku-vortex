@@ -1,6 +1,6 @@
-import LandingActuDescription from "./components/LandingActuDescription";
+import LandingActuDescription from "./components/Actu/LandingActuDescription";
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
-import LandingActuPictures from "./components/LandingActuPictures";
+import LandingActuPictures from "./components/Actu/LandingActuPictures";
 
 const LandingActu = (): JSX.Element => {
   const { LandingActuData } = arrayLandingHelpers();

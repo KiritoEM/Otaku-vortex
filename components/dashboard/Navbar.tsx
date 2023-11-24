@@ -1,6 +1,6 @@
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
-import NavbarItems from "./components/NavbarItems";
-import NavbarFooter from "./components/NavbarFooter";
+import NavbarItems from "./navbar/NavbarItems";
+import NavbarFooter from "./navbar/NavbarFooter";
 
 const Navbar = (): JSX.Element => {
   const { dashboardNav } = dashboardDataHelper();

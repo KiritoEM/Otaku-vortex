@@ -1,10 +1,10 @@
 import React from "react";
-import LandingNavItems from "./components/LandingNavItems";
+import LandingNavItems from "./components/navbar/LandingNavItems";
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
-import LandingNavButton from "./components/LandingNavButton";
-import LandingNavResponsive from "./components/LandingNavResponsive";
+import LandingNavButton from "./components/navbar/LandingNavButton";
+import LandingNavResponsive from "./components/navbar/LandingNavResponsive";
 import { Fragment } from "react";
-import MenuHamburger from "./components/MenuHamburger";
+import MenuHamburger from "./components/navbar/MenuHamburger";
 import { useNav } from "@/hooks/useNav";
 
 interface Iaction {

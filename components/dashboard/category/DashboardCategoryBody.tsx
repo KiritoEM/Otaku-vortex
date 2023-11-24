@@ -1,7 +1,7 @@
 import blogHelpers from "@/helpers/blogHelpers";
-import CardWithoutSwiper from "./CardWithoutSwiper";
+import CardWithoutSwiper from "../childrenComponents/CardWithoutSwiper";
 import { useCallback, useEffect, useState } from "react";
-import SectionCoverProps from "./SectionCoverProps";
+import SectionCoverProps from "../childrenComponents/SectionCoverProps";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
 
 interface IBlogItem {

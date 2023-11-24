@@ -1,38 +1,34 @@
 import blogHelpers from "@/helpers/blogHelpers";
-import CardWithoutSwiper from "./CardWithoutSwiper";
+import CardWithoutSwiper from "../childrenComponents/CardWithoutSwiper";
 import { useCallback, useEffect, useState } from "react";
-import SectionCoverProps from "./SectionCoverProps";
+import SectionCoverProps from "../childrenComponents/SectionCoverProps";
 
 interface IBlogItem {
+  Synopsis: string;
   cover: string;
   date: string;
   episodes: string;
   genre: string;
   title: string;
-  Synopsis: string;
   typeAffichage: string[];
   type_anime: string;
   _id: string;
-  Status: string
+  Status: string;
 }
 
-const DashboardListBody = (): JSX.Element => {
+const DashboardNewsBody = (): JSX.Element => {
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
-  if (blogs) {
-    console.log("blogs", blogs);
-  }
+  
   const { fetchBlogs } = blogHelpers();
 
   // Function to fetch recents blog
   const getRecentsBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
-
-      //sort blog with A-Z
-      const sortedBlogs = res.blog.sort((a: any, b: any) =>
-        a.title.localeCompare(b.title)
+      let recentBlogs = res.blog.filter((blogItem: IBlogItem) =>
+        blogItem.typeAffichage.includes("recent")
       );
-      setBlogs(sortedBlogs);
+      setBlogs(recentBlogs);
       console.log("blog obtenu: ", res.blog);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
@@ -44,19 +40,18 @@ const DashboardListBody = (): JSX.Element => {
   }, [getRecentsBlogs]);
 
   const cover = {
-    title: "Liste des animés de A à Z",
-    cover: "/list-cover.png",
+    title: "Animés Récents",
+    cover: "/news-cover.png",
   };
 
   return (
-    <section className="dashboard-list-content">
+    <section className="dashboard-news-content">
       <SectionCoverProps {...cover} />
-
       <div className="section-content mt-2">
         <div className="row gx-4 gy-4">
           {blogs &&
             blogs.map((blogItem) => (
-              <CardWithoutSwiper key={blogItem._id} {...blogItem} />
+              <CardWithoutSwiper  key={blogItem._id} {...blogItem} />
             ))}
         </div>
       </div>
@@ -64,4 +59,4 @@ const DashboardListBody = (): JSX.Element => {
   );
 };
 
-export default DashboardListBody;
+export default DashboardNewsBody;

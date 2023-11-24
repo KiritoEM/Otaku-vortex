@@ -96,7 +96,7 @@ const PostAnime = (): JSX.Element => {
                   <div className="col-12">
                     <textarea
                       name="synopsis"
-                      className=" mt-4 form-control"
+                      className=" mt-2 form-control"
                       placeholder="Entrez le Synopsis"
                     ></textarea>
                   </div>

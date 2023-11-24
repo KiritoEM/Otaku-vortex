@@ -1,5 +1,5 @@
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
-import LandingRecentContent from "./components/LandingRecentContent";
+import LandingRecentContent from "./components/Recent/LandingRecentContent";
 
 const LandingRecent = (): JSX.Element => {
   const { landingRecentData } = arrayLandingHelpers();

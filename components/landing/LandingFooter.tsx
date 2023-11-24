@@ -1,5 +1,5 @@
-import LandingFooterLeftS from "./components/LandingFooterLeftS";
-import LandingFooterMail from "./components/LandingFooterMail";
+import LandingFooterLeftS from "./components/Footer/LandingFooterLeftS";
+import LandingFooterMail from "./components/Footer/LandingFooterMail";
 import EmailAPI from "@/pages/api/EmailAPI";
 
 const LandingFooter = (): JSX.Element => {

@@ -1,6 +1,6 @@
 import arrayLandingHelpers from "@/helpers/arrayLandingHelpers";
-import LandingHeroDescription from "./components/LandingHeroDescription";
-import LandingHeroPictures from "./components/LandingHeroPictures";
+import LandingHeroDescription from "./components/Hero/LandingHeroDescription";
+import LandingHeroPictures from "./components/Hero/LandingHeroPictures";
 
 const LandingHero = (): JSX.Element => {
   const { landingHeroData } = arrayLandingHelpers();
