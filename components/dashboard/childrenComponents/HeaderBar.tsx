@@ -7,12 +7,18 @@ const HeaderBar = (): JSX.Element => {
   const { fetchUser } = userHelpers();
   const [username, setUsername] = useState<string>("");
 
+  const setLocalName = (name: string) => {
+    console.log(name);
+    localStorage.setItem("name", name);
+  };
+
   //get username to header
   const getUser = useCallback(async () => {
     try {
       let res = await fetchUser();
       let userName = res.user.username;
       setUsername(userName);
+      setLocalName(userName);
       console.log("user obtenu: ", userName);
     } catch (error) {
       console.error(

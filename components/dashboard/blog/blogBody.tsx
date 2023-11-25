@@ -10,7 +10,7 @@ import userHelpers from "@/helpers/userHelpers";
 import React, { useCallback, useEffect, useState } from "react";
 import blogHelpers from "@/helpers/blogHelpers";
 import { useRouter } from "next/router";
-import io from "socket.io-client";
+import socket from "@/helpers/socket";
 
 interface IBlogItem {
   Synopsis: string;
@@ -39,10 +39,11 @@ const BlogBody: React.FC<IBlogItem> = ({
 }): JSX.Element => {
   const { dashboardHomeData } = dashboardDataHelper();
   const { postComments } = blogHelpers();
+  const { fetchUser } = userHelpers();
   const router = useRouter();
   const { fetchComments } = blogHelpers();
-  const socket = io("http://localhost:8000");
   const [comments, setComments] = useState<any[]>([]);
+  const [username, setUsername] = useState<string>("");
 
   const getComments = useCallback(async () => {
     let res = await fetchComments(blogID);
@@ -50,19 +51,41 @@ const BlogBody: React.FC<IBlogItem> = ({
 
     socket.on("comment", (comment) => {
       console.log("commentaire reçu:", comment);
-      if (!comments.find((c) => c._id === comment._id)) {
-        setComments((prevComments) => [...prevComments, comment]);
-      }
+
+      setComments((prevComments) => {
+        const commentExists = prevComments.some((c) => c._id === comment._id);
+
+        if (!commentExists) {
+          return [...prevComments, comment];
+        }
+
+        return prevComments;
+      });
     });
-  }, []);
+  }, [setComments]);
+
+  const getUser = useCallback(async () => {
+    try {
+      let res = await fetchUser();
+      let userName = res.user.username;
+      setUsername(userName);
+      console.log("user obtenu: ", userName);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des informations del' utilisateur",
+        error
+      );
+    }
+  }, [setUsername]);
 
   useEffect(() => {
     getComments();
+    getUser();
 
     return () => {
       socket.off("comment");
     };
-  }, [getComments, setComments]);
+  }, [getComments, setComments, getUser]);
 
   const handleClick = () => {
     socket.emit("connexion", "serveur connecté via React");

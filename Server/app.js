@@ -33,8 +33,6 @@ app.use("/comments", require("./routes/comments.routes"));
 io.on('connection', (socket) => {
 
   socket.on('comment', (comment) => {
-    console.log('Nouveau commentaire reçu:', comment);
-
     io.emit('comment', comment);
   });
 

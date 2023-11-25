@@ -27,6 +27,7 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
     setToken(String);
   };
 
+
   const getToken = () => {
     return token;
   };
