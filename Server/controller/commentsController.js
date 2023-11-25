@@ -42,9 +42,7 @@ const getCommentsController = async (req, res) => {
     const response = await getComments(blogId);
 
     if (response) {
-      res
-        .status(200)
-        .json({ message: "Commentaire affiché ", comment: response });
+      res.status(200).json({ response });
     } else {
       await res.json({ message: "Echec de l' affichage du commentaire" });
     }

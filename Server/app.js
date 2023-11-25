@@ -31,7 +31,6 @@ app.use("/user", require("./routes/user.routes"));
 app.use("/comments", require("./routes/comments.routes"));
 
 io.on('connection', (socket) => {
-  console.log('Un utilisateur est connecté');
 
   socket.on('comment', (comment) => {
     console.log('Nouveau commentaire reçu:', comment);
@@ -40,10 +39,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log('Un utilisateur s\'est déconnecté');
   });
 });
-
 // Start server
 server.listen(process.env.PORT, () => {
   console.log(`Server started on PORT: ${process.env.PORT}`);

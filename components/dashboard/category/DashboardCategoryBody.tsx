@@ -2,7 +2,6 @@ import blogHelpers from "@/helpers/blogHelpers";
 import CardWithoutSwiper from "../childrenComponents/CardWithoutSwiper";
 import { useCallback, useEffect, useState } from "react";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
-import io from "socket.io-client";
 
 interface IBlogItem {
   Synopsis: string;
@@ -20,20 +19,6 @@ interface IBlogItem {
 let filteredBlogs: IBlogItem[];
 
 const DashboardCategoryBody = (): JSX.Element => {
-  useEffect(() => {
-    const socket = io("http://localhost:8000");
-  
-    socket.emit("message", { message: "depuis react" });
-  
-    socket.on("message", (data: any) => {
-      console.log("Message reçu:", data);
-    });
-  
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
   const { dashboardCategoryData } = dashboardDataHelper();
   const [active, setActive] = useState<string>("Tous");
   const [clicked, setClicked] = useState<boolean>(false);
@@ -81,6 +66,7 @@ const DashboardCategoryBody = (): JSX.Element => {
     setActive(value);
     setClicked(value !== "Tous");
   };
+  
 
   return (
     <section className="dashboard-category-content">

@@ -84,8 +84,6 @@ export default function blogHelpers() {
     const form = e.currentTarget;
     let text = form["commentValue"].value;
 
-    console.log(text, blogId);
-
     try {
       const response = await axios.post(
         "http://localhost:8000/comments/post",
@@ -101,7 +99,6 @@ export default function blogHelpers() {
       );
 
       if (response.status === 200) {
-        alert("commentaire ajouté avec succés");
       } else {
         alert("Echec de l' ajout du commentaire");
       }

@@ -7,10 +7,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import CommentsCard from "../childrenComponents/commentsCard";
 import userHelpers from "@/helpers/userHelpers";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import blogHelpers from "@/helpers/blogHelpers";
 import { useRouter } from "next/router";
-import { io } from "socket.io-client";
+import io from "socket.io-client";
 
 interface IBlogItem {
   Synopsis: string;
@@ -44,21 +44,29 @@ const BlogBody: React.FC<IBlogItem> = ({
   const socket = io("http://localhost:8000");
   const [comments, setComments] = useState<any[]>([]);
 
-  const getComments = async () => {
+  const getComments = useCallback(async () => {
     let res = await fetchComments(blogID);
-    console.log("commentaires : ",res);
+    setComments(res.response);
 
     socket.on("comment", (comment) => {
       console.log("commentaire reçu:", comment);
+      if (!comments.find((c) => c._id === comment._id)) {
+        setComments((prevComments) => [...prevComments, comment]);
+      }
     });
-  };
+  }, []);
 
   useEffect(() => {
     getComments();
+
     return () => {
-      socket.disconnect();
+      socket.off("comment");
     };
-  }, []);
+  }, [getComments, setComments]);
+
+  const handleClick = () => {
+    socket.emit("connexion", "serveur connecté via React");
+  };
 
   return (
     <div className="blog__body">
@@ -83,7 +91,7 @@ const BlogBody: React.FC<IBlogItem> = ({
                   </div>
                 </div>
                 <div className="reactions mt-3">
-                  <div className="like">
+                  <div className="like" onClick={handleClick}>
                     <p>
                       <FontAwesomeIcon icon={faHeart} className="mx-2" />
                       225
@@ -140,7 +148,12 @@ const BlogBody: React.FC<IBlogItem> = ({
             <div className="line"></div>
           </div>
           <div className="comments-content">
-            <CommentsCard />
+            {comments &&
+              comments.map((item, index) => (
+                <div key={index}>
+                  <CommentsCard key={index} comment={item} />
+                </div>
+              ))}
           </div>
 
           <form

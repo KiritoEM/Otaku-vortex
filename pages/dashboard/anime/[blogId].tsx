@@ -31,7 +31,6 @@ const blog = (): JSX.Element => {
       let res = await fetchBlogs();
       const blogFiltered = res.blog.find((item: any) => item._id === blogId);
       setBlogs(blogFiltered);
-      console.log(blogFiltered);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
     }
