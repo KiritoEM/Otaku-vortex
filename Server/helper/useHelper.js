@@ -23,6 +23,25 @@ const sendUser = async (token) => {
   }
 };
 
+const sendID = async (token) => {
+  try {
+    const decodedToken = verifyToken(token);
+    userID = decodedToken.userId;
+    console.log("userID :", userID);
+
+    if (decodedToken.userId) {
+      return decodedToken.userId;
+    } else {
+      return null;
+      console.log("utilisateur non trouvé");
+    }
+  } catch (err) {
+    return null;
+    console.log(err);
+  }
+};
+
 module.exports = {
   sendUser,
+  sendID,
 };

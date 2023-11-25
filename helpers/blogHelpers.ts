@@ -58,5 +58,30 @@ export default function blogHelpers() {
     }
   };
 
-  return { fetchBlogs, postBlog };
+  const postComments = async (
+    e: React.FormEvent<HTMLFormElement>,
+    blogId: string
+  ) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    let text = form["commentValue"].value;
+
+    try {
+      const response = await axios.post("http://localhost:8000/blog/post", {
+        blogID: blogId,
+        text: text,
+      });
+
+      if (response.status === 200) {
+        alert("blog ajouté avec succés");
+      } else {
+        alert("Echec de l' ajout du blog");
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'email :", error);
+    }
+  };
+
+  return { fetchBlogs, postBlog, postComments };
 }

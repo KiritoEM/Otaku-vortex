@@ -39,7 +39,7 @@ const BlogBody: React.FC<IBlogItem> = ({
     <div className="blog__body">
       <div className="cover" style={{ backgroundImage: `url("${cover}")` }}>
         <div className="element-container">
-          <div className="row gx-1">
+          <div className="row gx-5">
             <div className="col-4">
               <div className="section-cover">
                 <img src={cover} alt="" />

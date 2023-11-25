@@ -28,6 +28,7 @@ app.use("/email", require("./routes/email.routes"));
 app.use("/auth", require("./routes/auth.routes"));
 app.use("/blog", require("./routes/blog.routes"));
 app.use("/user", require("./routes/user.routes"));
+app.use("/comments", require("./routes/comments.routes"));
 
 io.on("connection", (socket) => {
   console.log("Client connecté: " + socket.id);
