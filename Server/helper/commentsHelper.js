@@ -15,7 +15,7 @@ const postComments = async (text, commentator, blog) => {
 
 const getComments = async (blogID) => {
   try {
-    const comments = await commentsModel.find({ article: blogID });
+    const comments = await commentsModel.find({ article: blogID }).populate('commentator');
     return comments;
   } catch (error) {
     console.log(error);

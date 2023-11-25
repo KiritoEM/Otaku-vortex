@@ -46,7 +46,7 @@ const BlogBody: React.FC<IBlogItem> = ({
 
   const getComments = async () => {
     let res = await fetchComments(blogID);
-    console.log(res);
+    console.log("commentaires : ",res);
 
     socket.on("comment", (comment) => {
       console.log("commentaire reçu:", comment);
@@ -140,8 +140,6 @@ const BlogBody: React.FC<IBlogItem> = ({
             <div className="line"></div>
           </div>
           <div className="comments-content">
-            <CommentsCard />
-            <CommentsCard />
             <CommentsCard />
           </div>
 

@@ -46,7 +46,7 @@ const getCommentsController = async (req, res) => {
         .status(200)
         .json({ message: "Commentaire affiché ", comment: response });
     } else {
-      res.status(500).json({ message: "Echec de l' affichage du commentaire" });
+      await res.json({ message: "Echec de l' affichage du commentaire" });
     }
   } else {
     console.log("Authorisation requis");
