@@ -32,7 +32,7 @@
             height: 28rem;
             margin-top: 4.64rem;
             margin-left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.836);
          }
 
          .section-cover {
@@ -107,6 +107,7 @@
                display: flex;
                height: 46px;
                padding: 0;
+               gap: 14px;
                margin: 0;
 
                .like {
@@ -185,7 +186,7 @@
       }
 
       .comments {
-         padding: 0 30px 30px 30px;
+         padding: 0 30px 30px 0;
 
          &__container {
             padding: 20px 30px 20px 30px;
@@ -194,7 +195,7 @@
 
             .title {
 
-               h4 {
+               h5 {
                   color: #fff;
                   font-weight: bold;
                }

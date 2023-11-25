@@ -91,6 +91,8 @@ const BlogBody: React.FC<IBlogItem> = ({
     socket.emit("connexion", "serveur connecté via React");
   };
 
+  let commentsNumber = comments.length;
+
   return (
     <div className="blog__body">
       <div className="cover" style={{ backgroundImage: `url("${cover}")` }}>
@@ -123,7 +125,7 @@ const BlogBody: React.FC<IBlogItem> = ({
                   <div className="comments">
                     <p>
                       <FontAwesomeIcon icon={faComment} className="mx-2" />
-                      225
+                      {commentsNumber}
                     </p>
                   </div>
                 </div>
@@ -167,16 +169,19 @@ const BlogBody: React.FC<IBlogItem> = ({
       <div className="comments">
         <div className="comments__container">
           <div className="title">
-            <h4>Commentaires (5)</h4>
+            <h5>Commentaires ({commentsNumber})</h5>
             <div className="line"></div>
           </div>
           <div className="comments-content">
-            {comments &&
+            {comments && comments.length > 0 ? (
               comments.map((item, index) => (
                 <div key={index}>
                   <CommentsCard key={index} comment={item} />
                 </div>
-              ))}
+              ))
+            ) : (
+              <h5 className="vide">Aucun commentaire </h5>
+            )}
           </div>
 
           <form
@@ -184,6 +189,7 @@ const BlogBody: React.FC<IBlogItem> = ({
             onSubmit={(e: any) => {
               if (blogID) {
                 postComments(e, blogID);
+                e.currentTarget.commentValue.value = "";
               }
             }}
           >
