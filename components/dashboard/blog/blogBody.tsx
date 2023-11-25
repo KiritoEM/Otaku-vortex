@@ -9,6 +9,7 @@ import CommentsCard from "../childrenComponents/commentsCard";
 
 const BlogBody = (): JSX.Element => {
   const { dashboardHomeData } = dashboardDataHelper();
+
   return (
     <div className="blog__body">
       <div className="cover">

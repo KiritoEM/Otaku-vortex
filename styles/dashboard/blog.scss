@@ -53,7 +53,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 14px;
+            padding: 10px;
             height: 100%;
             width: 100%;
             z-index: 15;
@@ -201,46 +201,8 @@
 
             .comments-content {
                width: 100%;
-               margin-top: 1.5rem;
+               margin-top: 1rem;
 
-               .comments-card {
-                  width: 100%;
-                  background-color: $black-color;
-                  padding: 18px;
-                  padding-left: 20px;
-                  padding-right: 20px;
-                  border-radius: 9px;
-                  margin-top: 44px;
-
-                  .user-profile {
-                     display: flex;
-                     flex-direction: row;
-                     gap: 10px;
-                     align-items: center;
-
-                     img {
-                        width: 48px;
-                        object-fit: cover;
-                     }
-
-                     h5 {
-                        color: #fff;
-                        font-weight: 500;
-                        position: relative;
-                        top: 6px
-                     }
-                  }
-
-                  .coms-value {
-                     margin-top: 0.4rem;
-                     padding-left: 58px;
-                     padding-right: 58px;
-
-                     p {
-                        color: #fff;
-                     }
-                  }
-               }
             }
 
             .post-comments {
@@ -257,7 +219,8 @@
                      width: 100%;
                      border: 0;
                      border-radius: 9px;
-                     padding: 19px 15px 0 15px;
+                     padding: 13px 15px 0 15px;
+                     height: 3.2rem;
                      font-size: 17px;
                       
                      &:focus{

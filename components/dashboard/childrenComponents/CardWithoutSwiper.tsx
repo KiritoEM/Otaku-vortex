@@ -2,6 +2,7 @@ import { faTelevision } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import dashboardDataHelper from "@/helpers/dashboardDataHelper";
+import { useRouter } from "next/router";
 
 interface Iprops {
   Synopsis: string;
@@ -14,6 +15,7 @@ interface Iprops {
   type_anime: string;
   _id: string;
   Status: string;
+  blogId: string;
 }
 
 const CardWithoutSwiper: React.FC<Iprops> = ({
@@ -25,12 +27,19 @@ const CardWithoutSwiper: React.FC<Iprops> = ({
   title,
   typeAffichage,
   type_anime,
+  blogId,
   Status,
 }): JSX.Element => {
+  const router = useRouter();
   const { dashboardHomeData } = dashboardDataHelper();
   return (
     <div className="col-4">
-      <article className="box">
+      <article
+        className="box"
+        onClick={() => {
+          router.push(`/dashboard/anime/${blogId}`);
+        }}
+      >
         <div
           className="box__cover"
           style={{ backgroundImage: `url("${cover}")` }}
@@ -57,7 +66,7 @@ const CardWithoutSwiper: React.FC<Iprops> = ({
 
           <div className="content__genre">
             <h6>
-            <span>Genre</span> : {genre}
+              <span>Genre</span> : {genre}
             </h6>
           </div>
 

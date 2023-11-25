@@ -51,7 +51,7 @@ const DashboardNewsBody = (): JSX.Element => {
         <div className="row gx-4 gy-4">
           {blogs &&
             blogs.map((blogItem) => (
-              <CardWithoutSwiper  key={blogItem._id} {...blogItem} />
+              <CardWithoutSwiper blogId={blogItem._id} key={blogItem._id} {...blogItem} />
             ))}
         </div>
       </div>

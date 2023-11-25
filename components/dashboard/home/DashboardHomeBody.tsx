@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
+import { useRouter } from "next/router";
 
 interface Iprops {
   image: string;
@@ -24,6 +25,8 @@ interface IBlogItem {
 }
 
 const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
+  const router = useRouter()
+  
   //import swiper hooks
   const swiper = useSwiper();
 
@@ -104,7 +107,7 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
             >
               {blogs &&
                 blogs.map((blogItem) => (
-                  <SwiperSlide key={blogItem._id}>
+                  <SwiperSlide key={blogItem._id} onClick={()=>{router.push(`/dashboard/anime/${blogItem._id}`)}}>
                     <ArticleCard {...blogItem} />
                   </SwiperSlide>
                 ))}

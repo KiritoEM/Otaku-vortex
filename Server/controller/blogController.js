@@ -10,7 +10,7 @@ const postBlogController = async (req, res) => {
     date,
     episodes,
     type_affichage,
-    status
+    status,
   } = req.body;
   console.log(req.body);
 
@@ -34,15 +34,22 @@ const postBlogController = async (req, res) => {
 };
 
 const getBlogController = async (req, res) => {
-  const response = await getBlogHelper();
-  console.log(response);
+  const token = req.headers.authorization;
 
-  if (response) {
-    res.status(200).json({ blog: response });
-  } else {
-    res
-      .status(500)
-      .json({ erreur: "Erreur lors de la récupération des blogs" });
+  if (token) {
+    const response = await getBlogHelper();
+    if (response) {
+      res.status(200).json({ blog: response });
+    } else {
+      res
+        .status(500)
+        .json({ erreur: "Erreur lors de la récupération des blogs" });
+    }
+  }
+
+  else{
+    console.log( "Authorisation requis");
+    res.status(500).json({ message: "Authorisation requis" });
   }
 };
 
