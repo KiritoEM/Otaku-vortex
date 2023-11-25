@@ -40,14 +40,9 @@ const getBlogController = async (req, res) => {
 
   if (token) {
     const response = await getBlogHelper();
-    const user = await sendUser(token);
-
-    if (user) {
-      console.log("user envoyé");
-    }
     
     if (response) {
-      res.status(200).json({ blog: response, user: user });
+      res.status(200).json({ blog: response });
     } else {
       res
         .status(500)

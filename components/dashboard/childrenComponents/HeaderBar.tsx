@@ -1,7 +1,31 @@
 import { faSearch, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import userHelpers from "@/helpers/userHelpers";
+import { useCallback, useEffect, useState } from "react";
 
 const HeaderBar = (): JSX.Element => {
+  const { fetchUser } = userHelpers();
+  const [username, setUsername] = useState<string>("");
+
+  //get username to header
+  const getUser = useCallback(async () => {
+    try {
+      let res = await fetchUser();
+      let userName = res.user.username;
+      setUsername(userName);
+      console.log("user obtenu: ", userName);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération des informations del' utilisateur",
+        error
+      );
+    }
+  }, [setUsername]);
+
+  useEffect(() => {
+    getUser();
+  }, [getUser]);
+
   return (
     <section className="header-bar">
       <div className="header-bar__container">
@@ -22,10 +46,10 @@ const HeaderBar = (): JSX.Element => {
           <div className="user">
             <div className="profile">
               <img src="/one-piece.jpg" alt="" />
-              <p>Loick</p>
+              <p>{username}</p>
             </div>
             <div className="icon-sort">
-            <FontAwesomeIcon icon={faSortDown} className="icon" />
+              <FontAwesomeIcon icon={faSortDown} className="icon" />
             </div>
           </div>
         </div>

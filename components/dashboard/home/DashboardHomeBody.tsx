@@ -6,6 +6,7 @@ import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
 import { useRouter } from "next/router";
+import userHelpers from "@/helpers/userHelpers";
 
 interface Iprops {
   image: string;
@@ -25,16 +26,8 @@ interface IBlogItem {
 }
 
 const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
-  const router = useRouter()
-  
-  //import swiper hooks
-  const swiper = useSwiper();
-
-  //hooks to stock blog
+  const router = useRouter();
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
-  const [userName, setUsername] = useState<string>("");
-
-  //import fetchBlogsHelper
   const { fetchBlogs } = blogHelpers();
 
   // Function to fetch populate blog
@@ -52,11 +45,8 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
         blogItem.typeAffichage.includes("populaire")
       );
 
-      let userName = res.user.username;
       setBlogs(popularBlogs);
-      setUsername()
       console.log("blog obtenu: ", res.blog);
-      console.log("user obtenu: ", res.user);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
     }
@@ -64,7 +54,7 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
 
   useEffect(() => {
     getPopularBlogs();
-  }, [getPopularBlogs]);
+  }, [getPopularBlogs ]);
 
   return (
     <section className="dashboard-home-content">
@@ -112,7 +102,12 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
             >
               {blogs &&
                 blogs.map((blogItem) => (
-                  <SwiperSlide key={blogItem._id} onClick={()=>{router.push(`/dashboard/anime/${blogItem._id}`)}}>
+                  <SwiperSlide
+                    key={blogItem._id}
+                    onClick={() => {
+                      router.push(`/dashboard/anime/${blogItem._id}`);
+                    }}
+                  >
                     <ArticleCard {...blogItem} />
                   </SwiperSlide>
                 ))}

@@ -6,53 +6,81 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import CommentsCard from "../childrenComponents/commentsCard";
+import userHelpers from "@/helpers/userHelpers";
+import React from "react";
 
-const BlogBody = (): JSX.Element => {
+interface IBlogItem {
+  Synopsis: string;
+  cover: string;
+  date: string;
+  episodes: string;
+  genre: string;
+  title: string;
+  typeAffichage: string[];
+  type_anime: string;
+  _id: string;
+  Status: string;
+}
+
+const BlogBody: React.FC<IBlogItem> = ({
+  Synopsis,
+  cover,
+  date,
+  episodes,
+  genre,
+  title,
+  typeAffichage,
+  type_anime,
+  Status,
+}): JSX.Element => {
   const { dashboardHomeData } = dashboardDataHelper();
 
   return (
     <div className="blog__body">
-      <div className="cover">
-        <div className="row gx-1">
-          <div className="col-4">
-            <div className="section-cover">
-              <img src="/list-cover.png" alt="" />
+      <div className="cover" style={{ backgroundImage: `url("${cover}")` }}>
+        <div className="element-container">
+          <div className="row gx-1">
+            <div className="col-4">
+              <div className="section-cover">
+                <img src={cover} alt="" />
+              </div>
             </div>
-          </div>
 
-          <div className="col-7">
-            <div className="section-content">
-              <div className="title">
-                <h1>Attack on titan</h1>
-                <div className="date mt-1">
+            <div className="col-7">
+              <div className="section-content">
+                <div className="title">
+                  <h2>{title}</h2>
+                  <div className="date mt-1">
+                    <p>
+                      <b className="mx-1">Date de sortie : </b>
+                      {date}
+                    </p>
+                  </div>
+                </div>
+                <div className="reactions mt-3">
+                  <div className="like">
+                    <p>
+                      <FontAwesomeIcon icon={faHeart} className="mx-2" />
+                      225
+                    </p>
+                  </div>
+                  <div className="comments">
+                    <p>
+                      <FontAwesomeIcon icon={faComment} className="mx-2" />
+                      225
+                    </p>
+                  </div>
+                </div>
+                <div className="episodes">
                   <p>
-                    <b className="mx-1">Date de sortie : </b>Novembre 2023
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={dashboardHomeData.biblioIcon}
+                      className="mx-2"
+                    />{" "}
+                    {episodes}
                   </p>
                 </div>
-              </div>
-              <div className="reactions mt-3">
-                <div className="like">
-                  <p>
-                    <FontAwesomeIcon icon={faHeart} className="mx-2" />
-                    225
-                  </p>
-                </div>
-                <div className="comments">
-                  <p>
-                    <FontAwesomeIcon icon={faComment} className="mx-2" />
-                    225
-                  </p>
-                </div>
-              </div>
-              <div className="episodes">
-                <p>
-                  {" "}
-                  <FontAwesomeIcon
-                    icon={dashboardHomeData.biblioIcon}
-                    className="mx-2"
-                  />{" "}
-                  26 episodes
-                </p>
               </div>
             </div>
           </div>
@@ -63,25 +91,19 @@ const BlogBody = (): JSX.Element => {
         <div className="genre mt-3">
           <p>
             <b>Genre : </b>
-            <span className="mx-2">Action, Aventure, Supernatural</span>
+            <span className="mx-2">{genre}</span>
           </p>
         </div>
 
         <div className="status">
           <p>
             <b>Status : </b>
-            <span className="mx-2">Terminé</span>
+            <span className="mx-2">{Status}</span>
           </p>
         </div>
         <div className="synopsis">
           <p>
-            <b>Synopsis : </b>{" "}
-            <span className="mx-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis quasi doloribus at eligendi, non necessitatibus dolorum
-              fuga alias dolores quos? Saepe, obcaecati minus molestias eius
-              praesentium nostrum laboriosam corporis ut!
-            </span>
+            <b>Synopsis : </b> <span className="mx-2">{Synopsis}</span>
           </p>
         </div>
       </div>
