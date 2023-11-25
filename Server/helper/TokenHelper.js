@@ -1,12 +1,13 @@
 const jwt = require("jsonwebtoken");
+let secretKey = process.env.SECRET_KEY;
 
 const generateToken = (user) => {
   try {
-    const secretKey = process.env.SECRET_KEY;
     const { _id } = user;
     const userid = _id;
-    const payload = { userId: userid };
-    const token = jwt.sign(payload, secretKey, { expiresIn: "365d" });
+    const token = jwt.sign({ userId: `${userid}` }, secretKey, {
+      expiresIn: "365d",
+    });
     console.log("token généré: ", token);
 
     return token;
@@ -15,6 +16,18 @@ const generateToken = (user) => {
   }
 };
 
+const verifyToken = (token) => {
+  try {
+    const decoded = jwt.verify(token, secretKey);
+    console.log("Token vérifié : ", decoded);
+
+    return decoded;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   generateToken,
+  verifyToken,
 };

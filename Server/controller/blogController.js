@@ -1,4 +1,6 @@
 const { postBlogHelper, getBlogHelper } = require("./../helper/blogHelper");
+const { verifyToken } = require("./../helper/TokenHelper");
+const { sendUser } = require("./../helper/useHelper");
 
 const postBlogController = async (req, res) => {
   const {
@@ -38,17 +40,21 @@ const getBlogController = async (req, res) => {
 
   if (token) {
     const response = await getBlogHelper();
+    const user = await sendUser(token);
+
+    if (user) {
+      console.log("user envoyé");
+    }
+    
     if (response) {
-      res.status(200).json({ blog: response });
+      res.status(200).json({ blog: response, user: user });
     } else {
       res
         .status(500)
         .json({ erreur: "Erreur lors de la récupération des blogs" });
     }
-  }
-
-  else{
-    console.log( "Authorisation requis");
+  } else {
+    console.log("Authorisation requis");
     res.status(500).json({ message: "Authorisation requis" });
   }
 };

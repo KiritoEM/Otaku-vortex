@@ -43,10 +43,10 @@ const loginController = async (req, res) => {
   const { email, password } = req.body;
 
   const response = await loginHelper(email, password);
-  console.log(response);
 
   if (response) {
     const user = { _id: response._id };
+    console.log("userId via login: ", user);
     const token = generateToken(user);
 
     res.status(200).json({ message: "Utilisateur validé ", token });

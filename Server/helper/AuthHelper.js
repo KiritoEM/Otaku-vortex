@@ -43,16 +43,23 @@ const checkEmail = async (email) => {
 const loginHelper = async (email, password) => {
   try {
     const user = await userModel.findOne({ email: email });
-    const passwordMatch = await bcrypt.compare(password, user.password);
 
-    if (user && passwordMatch) {
-      return true;
+    if (user) {
+      const passwordMatch = await bcrypt.compare(password, user.password);
+
+      if (passwordMatch) {
+        return user; 
+      } else {
+        return null; 
+      }
     } else {
-      return false;
+      return null;
     }
   } catch (err) {
     console.error(err);
+    return null;
   }
 };
+
 
 module.exports = { signupHelper, hashPassword, checkEmail, loginHelper };

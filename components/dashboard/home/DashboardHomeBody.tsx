@@ -32,6 +32,7 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
 
   //hooks to stock blog
   const [blogs, setBlogs] = useState<IBlogItem[]>([]);
+  const [userName, setUsername] = useState<string>("");
 
   //import fetchBlogsHelper
   const { fetchBlogs } = blogHelpers();
@@ -50,8 +51,12 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
       let popularBlogs = sortedBlogs.filter((blogItem: IBlogItem) =>
         blogItem.typeAffichage.includes("populaire")
       );
+
+      let userName = res.user.username;
       setBlogs(popularBlogs);
+      setUsername()
       console.log("blog obtenu: ", res.blog);
+      console.log("user obtenu: ", res.user);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);
     }

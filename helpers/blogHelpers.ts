@@ -1,13 +1,16 @@
 import { useCallback, useEffect } from "react";
 import axios from "axios";
-let token = localStorage.getItem("token");
+let token: string | null;
+if (typeof window !== "undefined") {
+  token = localStorage.getItem("token");
+}
 
 export default function blogHelpers() {
   const fetchBlogs = async () => {
     try {
       const response = await axios.get("http://localhost:8000/blog/get", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `${token}`,
         },
       });
       return response.data;
