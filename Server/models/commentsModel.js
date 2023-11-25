@@ -7,13 +7,11 @@ const blogSchema = new mongoose.Schema({
   },
   commentator: {
     type: mongoose.Schema.ObjectId,
+    ref: "user",
     required: true,
-    ref: "User",
   },
-  article: {
-    type: mongoose.Schema.ObjectId,
-    ref: "blog",
-  },
+  article: { type: mongoose.Schema.ObjectId, ref: "blog", required: true },
+
   content: {
     type: String,
     required: true,

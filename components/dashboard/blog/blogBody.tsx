@@ -7,7 +7,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import CommentsCard from "../childrenComponents/commentsCard";
 import userHelpers from "@/helpers/userHelpers";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import blogHelpers from "@/helpers/blogHelpers";
+import { useRouter } from "next/router";
+import { io } from "socket.io-client";
 
 interface IBlogItem {
   Synopsis: string;
@@ -20,8 +23,8 @@ interface IBlogItem {
   type_anime: string;
   _id: string;
   Status: string;
+  blogID: string;
 }
-
 const BlogBody: React.FC<IBlogItem> = ({
   Synopsis,
   cover,
@@ -32,8 +35,30 @@ const BlogBody: React.FC<IBlogItem> = ({
   typeAffichage,
   type_anime,
   Status,
+  blogID,
 }): JSX.Element => {
   const { dashboardHomeData } = dashboardDataHelper();
+  const { postComments } = blogHelpers();
+  const router = useRouter();
+  const { fetchComments } = blogHelpers();
+  const socket = io("http://localhost:8000");
+  const [comments, setComments] = useState<any[]>([]);
+
+  const getComments = async () => {
+    let res = await fetchComments(blogID);
+    console.log(res);
+
+    socket.on("comment", (comment) => {
+      console.log("commentaire reçu:", comment);
+    });
+  };
+
+  useEffect(() => {
+    getComments();
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   return (
     <div className="blog__body">
@@ -120,11 +145,18 @@ const BlogBody: React.FC<IBlogItem> = ({
             <CommentsCard />
           </div>
 
-          <form action="">
+          <form
+            action="post"
+            onSubmit={(e: any) => {
+              if (blogID) {
+                postComments(e, blogID);
+              }
+            }}
+          >
             <div className="post-comments">
               <div className="input">
                 <textarea
-                  name=""
+                  name="commentValue"
                   placeholder="Entrez votre commentaire ..."
                 ></textarea>
               </div>

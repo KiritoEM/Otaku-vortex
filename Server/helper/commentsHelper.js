@@ -9,8 +9,17 @@ const postComments = async (text, commentator, blog) => {
     });
     return await newComment.save();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
-module.exports = { postComments };
+const getComments = async (blogID) => {
+  try {
+    const comments = await commentsModel.find({ article: blogID });
+    return comments;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { postComments, getComments };

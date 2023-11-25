@@ -30,17 +30,17 @@ app.use("/blog", require("./routes/blog.routes"));
 app.use("/user", require("./routes/user.routes"));
 app.use("/comments", require("./routes/comments.routes"));
 
-io.on("connection", (socket) => {
-  console.log("Client connecté: " + socket.id);
+io.on('connection', (socket) => {
+  console.log('Un utilisateur est connecté');
 
-  socket.on("message", (data) => {
-    console.log("Message reçu du client:", data);
+  socket.on('comment', (comment) => {
+    console.log('Nouveau commentaire reçu:', comment);
 
-    io.emit("message", { message: "depuis le serveur" });
+    io.emit('comment', comment);
   });
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected: " + socket.id);
+  socket.on('disconnect', () => {
+    console.log('Un utilisateur s\'est déconnecté');
   });
 });
 

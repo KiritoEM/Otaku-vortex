@@ -20,6 +20,23 @@ export default function blogHelpers() {
     }
   };
 
+  const fetchComments = async (blogID: string) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/comments/get/${blogID}`,
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Erreur lors de la récupération des blogs", error);
+      throw error;
+    }
+  };
+
   const postBlog = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -67,21 +84,31 @@ export default function blogHelpers() {
     const form = e.currentTarget;
     let text = form["commentValue"].value;
 
+    console.log(text, blogId);
+
     try {
-      const response = await axios.post("http://localhost:8000/blog/post", {
-        blogID: blogId,
-        text: text,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/comments/post",
+        {
+          blogID: blogId,
+          text: text,
+        },
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
 
       if (response.status === 200) {
-        alert("blog ajouté avec succés");
+        alert("commentaire ajouté avec succés");
       } else {
-        alert("Echec de l' ajout du blog");
+        alert("Echec de l' ajout du commentaire");
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi de l'email :", error);
+      console.error("Erreur lors de l'envoi du commentaires :", error);
     }
   };
 
-  return { fetchBlogs, postBlog, postComments };
+  return { fetchBlogs, postBlog, postComments , fetchComments};
 }
