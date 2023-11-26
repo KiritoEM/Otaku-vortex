@@ -3,6 +3,7 @@ import React, { ReactNode, createContext, useContext, useState } from "react";
 export interface IAuthContext {
   setLocalToken: (e: string) => void;
   getToken: () => string | null;
+  clearToken: () => void;
 }
 
 interface IAuthProvider {
@@ -22,11 +23,9 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
   });
 
   const setLocalToken = (tk: string) => {
-    console.log(tk);
     localStorage.setItem("token", tk);
     setToken(String);
   };
-
 
   const getToken = () => {
     return token;
@@ -42,13 +41,14 @@ export const AuthProvider: React.FC<IAuthProvider> = ({ children }) => {
       value={{
         setLocalToken,
         getToken,
+        clearToken,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
-//exportation du hooks
+//hooks exportation
 export const useAuthentification = () => {
   const context = useContext(AuthContext);
 

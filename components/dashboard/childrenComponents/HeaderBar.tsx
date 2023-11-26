@@ -1,10 +1,20 @@
-import { faSearch, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faSignOutAlt,
+  faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import userHelpers from "@/helpers/userHelpers";
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
+import { useAuthentification } from "@/hooks/useAuthentification";
+import { useRouter } from "next/router";
+import scrollingHelper from "@/helpers/scrollingHelper";
 
 const HeaderBar = (): JSX.Element => {
+  const { clearToken } = useAuthentification();
   const { fetchUser } = userHelpers();
+  const { windowHeight } = scrollingHelper();
+  const router = useRouter();
   const [username, setUsername] = useState<string>("");
 
   const setLocalName = (name: string) => {
@@ -32,35 +42,51 @@ const HeaderBar = (): JSX.Element => {
     getUser();
   }, [getUser]);
 
+  const logout = () => {
+    clearToken();
+    router.reload();
+    router.push('/')
+  };
+
   return (
-    <section className="header-bar">
-      <div className="header-bar__container">
-        <div className="content">
-          <div className="search-bar">
-            <div className="input">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Rechercher un titre ..."
-              />
+    <>
+      <section className="header-bar">
+        <div className="header-bar__container">
+          <div className="content">
+            <div className="search-bar">
+              <div className="input">
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Rechercher un titre ..."
+                />
+              </div>
+              <div className="icon-search">
+                <FontAwesomeIcon icon={faSearch} className="icon" />
+              </div>
             </div>
-            <div className="icon-search">
-              <FontAwesomeIcon icon={faSearch} className="icon" />
-            </div>
-          </div>
-          <div className="user">
-            <div className="profile">
-              <img src="/one-piece.jpg" alt="" />
-              <p>{username}</p>
-            </div>
-            <div className="icon-sort">
-              <FontAwesomeIcon icon={faSortDown} className="icon" />
+            <div className="user">
+              <div className="profile">
+                <img src="/one-piece.jpg" alt="" />
+                <p>{username}</p>
+              </div>
+              <div className="icon-sort">
+                <FontAwesomeIcon icon={faSortDown} className="icon" />
+              </div>
             </div>
           </div>
         </div>
+      </section>
+      <div className={`section-logout ${windowHeight ? "d-none" : "d-flex"}`}>
+        <div className="window" onClick={logout}>
+          <p>
+            Se déconnecter{" "}
+            <FontAwesomeIcon icon={faSignOutAlt} className="icon mx-2" />
+          </p>
+        </div>
       </div>
-    </section>
+    </>
   );
 };
 

@@ -13,7 +13,6 @@ export default function AuthHelper() {
 
     const form = e.currentTarget;
     const email = form["email"].value;
-    console.log(email);
 
     try {
       const response = await axios.post(
@@ -43,7 +42,6 @@ export default function AuthHelper() {
 
     const form = e.currentTarget;
     const code = form["code"].value;
-    console.log(code);
 
     try {
       const response = await axios.post(
@@ -81,13 +79,10 @@ export default function AuthHelper() {
         password: password,
       });
 
-      console.log(response);
-
       if (response.status === 200) {
         router.push("/dashboard");
         alert("Bienvenue " + username);
         setLocalToken(response.data.token);
-        console.log("token sent");
       }
     } catch (error) {
       console.error("Erreur lors de la vérification du code :", error);
@@ -100,8 +95,6 @@ export default function AuthHelper() {
     const form = e.currentTarget;
     const email = form["email"].value;
     const password = form["password"].value;
-    console.log("mot de passe: ", password);
-    console.log("adresse email: ", email);
 
     try {
       const response = await axios.post("http://localhost:8000/auth/login", {
@@ -109,16 +102,11 @@ export default function AuthHelper() {
         password: password,
       });
 
-      console.log(response);
-
       if (response.status === 200) {
         router.push("/dashboard");
         setLocalToken(response.data.token);
-        console.log("token sent");
         alert("Nous sommes ravi de vous revoir");
-      }
-
-      else{
+      } else {
         alert("Veuillez reverifier votre email ou mot de passe");
       }
     } catch (error) {

@@ -11,6 +11,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import blogHelpers from "@/helpers/blogHelpers";
 import { useRouter } from "next/router";
 import socket from "@/helpers/socket";
+let commentsNumber: number | null;
+
 
 interface IBlogItem {
   Synopsis: string;
@@ -91,7 +93,9 @@ const BlogBody: React.FC<IBlogItem> = ({
     socket.emit("connexion", "serveur connecté via React");
   };
 
-  let commentsNumber = comments.length;
+  if (comments) {
+    commentsNumber = comments.length;
+  }
 
   return (
     <div className="blog__body">
