@@ -86,7 +86,7 @@ const DashboardCategoryBody = (): JSX.Element => {
 
       {/* =============Section card content============ */}
       <div className="section-content mt-2">
-        <div className="row gx-4 gy-4">
+        <div className="row gx-3 gy-3">
           {clicked === true
             ? filteredBlogs.map((blogItem) => (
                 <CardWithoutSwiper blogId={blogItem._id} key={blogItem._id} {...blogItem} />

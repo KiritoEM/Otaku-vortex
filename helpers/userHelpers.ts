@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
 export default function userHelpers() {
   const fetchUser = async () => {
     try {
-      const response = await axios.get("https://backend-server-of-otaku-vortex.vercel.app/user", {
+      const response = await axios.get("http://localhost:8000/user", {
         headers: {
           Authorization: `${token}`,
         },

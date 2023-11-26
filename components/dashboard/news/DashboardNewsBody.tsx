@@ -25,10 +25,10 @@ const DashboardNewsBody = (): JSX.Element => {
   const getRecentsBlogs = useCallback(async () => {
     try {
       let res = await fetchBlogs();
-      let recentBlogs = res.blog.filter((blogItem: IBlogItem) =>
-        blogItem.typeAffichage.includes("recent")
-      );
-      setBlogs(recentBlogs);
+      let sortedBlogs = res.blog.sort((a: any, b: any) =>
+      a.title.localeCompare(b.title)
+    );
+    setBlogs(sortedBlogs);
       console.log("blog obtenu: ", res.blog);
     } catch (error) {
       console.error("Erreur lors de la récupération des blogs", error);

@@ -17,7 +17,7 @@ export default function scrollingHelper() {
     };
   }, [scrollY]);
 
-  const windowHeight = scrollY > 50;
+  const windowHeight = scrollY > 40;
 
   return { windowHeight };
 }

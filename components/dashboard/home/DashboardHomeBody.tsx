@@ -6,7 +6,8 @@ import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
 import { useRouter } from "next/router";
-import userHelpers from "@/helpers/userHelpers";
+import mousewheel from 'swiper/core';
+import  keyboard from 'swiper/core';
 
 interface Iprops {
   image: string;
@@ -97,7 +98,8 @@ const DashboardHomeBody: React.FC<Iprops> = ({ image }): JSX.Element => {
               pagination={{
                 clickable: true,
               }}
-              autoplay
+              
+              keyboard={true}
               className="mySwiper"
             >
               {blogs &&

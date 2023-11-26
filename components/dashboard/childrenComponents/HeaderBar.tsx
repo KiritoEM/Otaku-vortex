@@ -16,6 +16,7 @@ const HeaderBar = (): JSX.Element => {
   const { windowHeight } = scrollingHelper();
   const router = useRouter();
   const [username, setUsername] = useState<string>("");
+  const [toogle, setToogle] = useState<boolean>(false);
 
   const setLocalName = (name: string) => {
     console.log(name);
@@ -45,9 +46,12 @@ const HeaderBar = (): JSX.Element => {
   const logout = () => {
     clearToken();
     router.reload();
-    router.push('/')
+    router.push("/");
   };
 
+  const toogleWindow = () => {
+    setToogle(!toogle);
+  };
   return (
     <>
       <section className="header-bar">
@@ -71,14 +75,18 @@ const HeaderBar = (): JSX.Element => {
                 <img src="/one-piece.jpg" alt="" />
                 <p>{username}</p>
               </div>
-              <div className="icon-sort">
+              <div className="icon-sort" onClick={toogleWindow}>
                 <FontAwesomeIcon icon={faSortDown} className="icon" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <div className={`section-logout ${windowHeight ? "d-none" : "d-flex"}`}>
+      <div
+        className={`section-logout ${windowHeight ? "d-none" : "d-flex"} ${
+          toogle ? "d-flex" : "d-none"
+        }`}
+      >
         <div className="window" onClick={logout}>
           <p>
             Se déconnecter{" "}

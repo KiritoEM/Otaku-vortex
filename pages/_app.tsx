@@ -4,7 +4,9 @@ import useLoader from "@/hooks/useLoader";
 import Loader from "@/components/Loader";
 import { useEffect } from "react";
 import AppProvider from "@/provider/AppProvider";
-import Route from "@/provider/Route";
+import Route from "@/provider/Route";;
+
+
 
 export default function App({ Component, pageProps }: AppProps) {
   //Appel du state Loader
@@ -14,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1320);
+    }, 1860);
   }, [loading]);
 
   return (
