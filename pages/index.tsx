@@ -7,6 +7,7 @@ import LandingRecent from "@/components/landing/LandingRecent";
 import LandingActu from "@/components/landing/LandingActu";
 import LandingFooter from "@/components/landing/LandingFooter";
 
+
 export default function landing(): JSX.Element {
   const { metaData } = metaDataHelper();
   return (

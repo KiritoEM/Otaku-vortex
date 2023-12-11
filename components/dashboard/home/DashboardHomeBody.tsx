@@ -4,10 +4,7 @@ import blogHelpers from "@/helpers/blogHelpers";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSwiper } from "swiper/react";
 import { useRouter } from "next/router";
-import mousewheel from 'swiper/core';
-import  keyboard from 'swiper/core';
 
 interface Iprops {
   image: string;
